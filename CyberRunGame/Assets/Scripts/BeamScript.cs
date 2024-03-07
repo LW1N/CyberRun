@@ -12,7 +12,6 @@ public class BeamScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log($"Collided with {other.gameObject.name}");
         // Check if the beam collides with an enemy
         if (other.gameObject.CompareTag("Finish")) 
         {

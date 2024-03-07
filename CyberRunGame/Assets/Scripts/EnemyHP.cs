@@ -7,21 +7,18 @@ public class EnemyHealth : MonoBehaviour
 
     void Start()
     {
-        // Initialize the enemy's health.
-        currentHealth = maxHealth; 
+        currentHealth = maxHealth;
     }
+
     public void TakeDamage(int damage)
     {
-        // Reduce the current health by the damage amount.
-        currentHealth -= damage; 
-        
-        // Current health for debugging.
+        currentHealth -= damage;
         Debug.Log($"Enemy Health: {currentHealth}/{maxHealth}");
-
-        // Check if the enemy's health has dropped to zero or below.
+        // Drops money upon death 
         if (currentHealth <= 0)
         {
-            Destroy(gameObject); 
+            MoneyManager.instance.AddMoney(10);
+            Destroy(gameObject);
         }
     }
 }
