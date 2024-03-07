@@ -1,35 +1,61 @@
 using UnityEngine;
 
-public class PlayerShooting : MonoBehaviour
+public class PlayerShoot : MonoBehaviour
 {
-    public Transform firePoint; // The point from which the beam will be fired
-    public GameObject beamPrefab; // Drag your beam prefab here in the inspector
-    public float beamSpeed = 20f; // Adjust as necessary
+    public GameObject beamPrefab; // Assign your beam prefab here
+    public Transform firePoint; // Assign the fire point transform here
+    public bool tripleShotEnabled = false; // Whether the triple shot upgrade is enabled
+    public float beamSpeed = 20f; // Speed at which the beam will move
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1")) // Default mouse left click or Ctrl
+        if (Input.GetButtonDown("Fire1"))
         {
-            ShootBeam();
+            Shoot();
         }
     }
 
-    void ShootBeam()
+    void Shoot()
     {
-        if (beamPrefab == null)
+        Vector2 direction = CalculateDirection();
+        if (tripleShotEnabled)
         {
-            Debug.LogError("Beam prefab is not assigned!");
-            return; // Stop the method here
+            // Shoot one beam directly towards the cursor
+            InstantiateBeam(firePoint.position, direction);
+
+            // For the angled shots, calculate a slight angle to the left and right
+            Vector2 leftDirection = Quaternion.Euler(0, 0, -5) * direction;
+            Vector2 rightDirection = Quaternion.Euler(0, 0, 5) * direction;
+
+            // Shoot the left and right beams with a small positional offset
+            InstantiateBeam(firePoint.position + new Vector3(-0.5f, 0, 0), leftDirection);
+            InstantiateBeam(firePoint.position + new Vector3(0.5f, 0, 0), rightDirection);
         }
-        // Calculate direction from firePoint to mouse position
+        else
+        {
+            // If triple shot is not enabled, shoot a single beam towards the cursor
+            InstantiateBeam(firePoint.position, direction);
+        }
+    }
+
+    Vector2 CalculateDirection()
+    {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = (mousePosition - (Vector2)firePoint.position).normalized;
+        return direction;
+    }
 
-        // Instantiate the beam
-        GameObject beam = Instantiate(beamPrefab, firePoint.position, Quaternion.identity);
+    void InstantiateBeam(Vector2 position, Vector2 direction)
+    {
+        GameObject beam = Instantiate(beamPrefab, position, Quaternion.identity);
         Rigidbody2D rb = beam.GetComponent<Rigidbody2D>();
-
-        // Set the beam's velocity
-        rb.velocity = direction * beamSpeed;
+        if (rb != null)
+        {
+            rb.velocity = direction * beamSpeed;
+        }
+        else
+        {
+            Debug.LogError("Beam prefab does not have a Rigidbody2D component.");
+        }
     }
 }
