@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: a5a5bb68a3b810148b58bf98fb7a4c24
+  productGUID: d24f97ea87a67eb48b9c3c7ae0317799
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -76,7 +76,6 @@ PlayerSettings:
   androidMinimumWindowWidth: 400
   androidMinimumWindowHeight: 300
   androidFullscreenMode: 1
-  androidAutoRotationBehavior: 1
   defaultIsNativeResolution: 1
   macRetinaSupport: 1
   runInBackground: 0
@@ -702,10 +701,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 3be37ac0-0524-46a7-b032-5579d4efd046
+  cloudProjectId: 5e423ef1-73cc-456c-b0b3-afdd9eb4035d
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: My project (4) 2024-03-02_20-26-03
+  projectName: My project (4) 2024-03-06_12-14-03
   organizationId: kebinlin
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
