@@ -1,0 +1,409 @@
+fileFormatVersion: 2
+guid: 53d4b8884d7a2934dbb33c94cd79c319
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CyberRun Tile Map C 2_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 672d42ddcc87c9f4a9978d4c51b17f45
+      internalID: -725418043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberRun Tile Map C 2_59
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f80197f17f15ca647a0cebfaa56d4824
+      internalID: -1495472387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberRun Tile Map C 2_64
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fe53184c7303104ebc5dff732e8766e
+      internalID: -1147976204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberRun Tile Map C 2_65
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8991324aecf348c419429fa019acdf07
+      internalID: -553111630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberRun Tile Map C 2_66
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2954b962f9065a54c956a7a054e74ab3
+      internalID: 1323448908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberRun Tile Map C 2_67
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ace5823262fa1ab469982b7588ecb42c
+      internalID: -48149230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberRun Tile Map C 2_68
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fedb1c63808657d4baa121b032d07e8c
+      internalID: 332284823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberRun Tile Map C 2_69
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4ef0766a33646547ae91b33136da760
+      internalID: -1980029215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberRun Tile Map C 2_70
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aea9301061e5ca4eb1abb89d897549d
+      internalID: 439795051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CyberRun Tile Map C 2_71
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 700d3d85da675504f85fe14dfc03e311
+      internalID: 1705835250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      CyberRun Tile Map C 2_0: -29009497
+      CyberRun Tile Map C 2_1: 1569311492
+      CyberRun Tile Map C 2_10: 746612271
+      CyberRun Tile Map C 2_11: -606119020
+      CyberRun Tile Map C 2_12: 1772769003
+      CyberRun Tile Map C 2_13: -882606543
+      CyberRun Tile Map C 2_14: -1878497883
+      CyberRun Tile Map C 2_15: 1523082960
+      CyberRun Tile Map C 2_16: -1080623489
+      CyberRun Tile Map C 2_17: 88792083
+      CyberRun Tile Map C 2_18: 1141398689
+      CyberRun Tile Map C 2_19: 827064501
+      CyberRun Tile Map C 2_2: -1068116638
+      CyberRun Tile Map C 2_20: 715582150
+      CyberRun Tile Map C 2_21: 14104127
+      CyberRun Tile Map C 2_22: 1478448036
+      CyberRun Tile Map C 2_23: 2015697800
+      CyberRun Tile Map C 2_24: -725418043
+      CyberRun Tile Map C 2_25: 748515012
+      CyberRun Tile Map C 2_26: -311213762
+      CyberRun Tile Map C 2_27: -688246042
+      CyberRun Tile Map C 2_28: -1046377348
+      CyberRun Tile Map C 2_29: -1614291851
+      CyberRun Tile Map C 2_3: -1825222360
+      CyberRun Tile Map C 2_30: -1860671152
+      CyberRun Tile Map C 2_31: 1046718271
+      CyberRun Tile Map C 2_32: 1778114460
+      CyberRun Tile Map C 2_33: -93602288
+      CyberRun Tile Map C 2_34: -165072088
+      CyberRun Tile Map C 2_35: 1873744548
+      CyberRun Tile Map C 2_36: 1158575763
+      CyberRun Tile Map C 2_37: -706043559
+      CyberRun Tile Map C 2_38: 648718772
+      CyberRun Tile Map C 2_39: -1824160837
+      CyberRun Tile Map C 2_4: 172990841
+      CyberRun Tile Map C 2_40: -989452933
+      CyberRun Tile Map C 2_41: 1489300576
+      CyberRun Tile Map C 2_42: 1476234626
+      CyberRun Tile Map C 2_43: -522390155
+      CyberRun Tile Map C 2_44: 2103986059
+      CyberRun Tile Map C 2_45: 971009648
+      CyberRun Tile Map C 2_46: -1378117411
+      CyberRun Tile Map C 2_47: -858805065
+      CyberRun Tile Map C 2_48: -573692245
+      CyberRun Tile Map C 2_49: 440932124
+      CyberRun Tile Map C 2_5: 1129820703
+      CyberRun Tile Map C 2_50: 944346620
+      CyberRun Tile Map C 2_51: 1447190660
+      CyberRun Tile Map C 2_52: -1740570888
+      CyberRun Tile Map C 2_53: 2146026914
+      CyberRun Tile Map C 2_54: -366161535
+      CyberRun Tile Map C 2_55: -575419401
+      CyberRun Tile Map C 2_56: 2118356034
+      CyberRun Tile Map C 2_57: -2102987619
+      CyberRun Tile Map C 2_58: -465283781
+      CyberRun Tile Map C 2_59: -1495472387
+      CyberRun Tile Map C 2_6: -864982787
+      CyberRun Tile Map C 2_60: -734519408
+      CyberRun Tile Map C 2_61: 729644823
+      CyberRun Tile Map C 2_62: 865115876
+      CyberRun Tile Map C 2_63: -1048520797
+      CyberRun Tile Map C 2_64: -1147976204
+      CyberRun Tile Map C 2_65: -553111630
+      CyberRun Tile Map C 2_66: 1323448908
+      CyberRun Tile Map C 2_67: -48149230
+      CyberRun Tile Map C 2_68: 332284823
+      CyberRun Tile Map C 2_69: -1980029215
+      CyberRun Tile Map C 2_7: -978753315
+      CyberRun Tile Map C 2_70: 439795051
+      CyberRun Tile Map C 2_71: 1705835250
+      CyberRun Tile Map C 2_8: 217296285
+      CyberRun Tile Map C 2_9: -460076561
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
