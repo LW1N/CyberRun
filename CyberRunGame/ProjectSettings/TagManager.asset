@@ -41,6 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: 2
+  - name: Buildings
     uniqueID: 3754508165
+    locked: 0
+  - name: Fence
+    uniqueID: 4150015043
+    locked: 0
+  - name: Player
+    uniqueID: 3865540955
     locked: 0
