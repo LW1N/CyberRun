@@ -41,12 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Buildings
+  - name: Water
+    uniqueID: 1041548335
+    locked: 0
+  - name: Background
+    uniqueID: 686669979
+    locked: 0
+  - name: Foreground
+    uniqueID: 1949140359
+    locked: 0
+  - name: UI
     uniqueID: 3754508165
-    locked: 0
-  - name: Fence
-    uniqueID: 4150015043
-    locked: 0
-  - name: Player
-    uniqueID: 3865540955
     locked: 0
