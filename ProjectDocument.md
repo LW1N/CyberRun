@@ -46,12 +46,36 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 **Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
 
-## Animation and Visuals
+## Animation and Visuals - Timothy Shen
+### Asset Creation
+### The Map
+Given that the game's setting is Cyberpunk, the style guide and art will mostly reflect that idea. Thus there were two prevailing themes in the art: (1) **dark colors** or (2) **neon/very bright colors** as typically Cyberpunk cities are dark night setting with neon lights to exemplify the "technologies." However, the first thing to complete was creating a concept map to help aid and guide the direction where we wanted to take this 2D top-down shooter. 
+| **Map** | <sub>*art drawn via PowerPoint*<sub>              |
+| :------------: | :------------: |
+| Initial Map       | <img src="./Materials/Animation & Visuals/map_design_layout.png" width="70%"> | 
+| Final Map         | <img src="./Materials/Animation & Visuals/map_design_final_layout.png" width="70%"> |
 
-**List your assets, including their sources and licenses.**
+The initial map showcases a city with four zones in which the player will progress through, eventually escaping the city at the boat deck--the end goal. The final map was decided on to allow for more open space for fight in Zone 2 and a much more challenging Zone 3 to progress through.  
 
-**Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
+Implementing the map in the game environment, I used a rectangular grid and used tile maps to create the maps. Tile map was chosen because it fit the aesthetic of a 2D top-down pixel game and allowed for the most flexibility in design--saving a lot of time.
 
+**VISUAL GUIDE for Tile Map**
+ - Each tile must be **32 by 32** pixels. 
+ - For Buildings (except Zone 3):
+   - The general color scheme must be "dull" and "dark" allowing for neon signs to contrast it.
+   - Buidings should be in similar syle across each zone, as it is a city.
+ - For objects:
+   - Must have a black outline around the object
+   - All signs must be neon and bright colors (they do not need to be outlined)
+
+#### Zone A - Parking Lot and Main Intersection
+#### Zone B - Plaza and Harbor Street
+#### Zone C - Park
+#### Zone D - Street to Boat Deck
+### Visual Guide for Characters
+### The Player
+### The Enemies/Gangs
+### Weapons/Projectiles
 ## Game Logic
 
 **Document the game states and game data you managed and the design patterns you used to complete your task.**
@@ -84,4 +108,6 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ## Game Feel and Polish
 
-**Document what you added to and how you tweaked your game to improve its game feel.**
+### Map Tweaks
+### Player Interaction with Object
+### Player Movement
