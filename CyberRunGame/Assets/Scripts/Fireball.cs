@@ -15,13 +15,13 @@ public class Fireball : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Rigidbody2D component not found on " + gameObject.name);
+            //Debug.LogError("Rigidbody2D component not found on " + gameObject.name);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Fireball collided with: " + other.gameObject.name);
+        //Debug.Log("Fireball collided with: " + other.gameObject.name);
         if (other.CompareTag("Player"))
         {
             other.GetComponent<PlayerHealth>().TakeDamage(damage);
