@@ -78,21 +78,21 @@ Note: The vehicles are not drawn by me. They are sourced from a free-to-use asse
 
 | <sub>Zone A: Parking Lot and Main Intersection<sub>              |
 |  :------------: |
-|  <img src="./Materials/Animation & Visuals/ZoneA.png" width="50%"> | 
+|  <img src="./Materials/Animation & Visuals/ZoneA.png" width="80%"> | 
 #### Zone B - Plaza and Harbor Street
 
 The second zone boast the largest zone with a plaza area and a large street. The large area allows for the most practice and skill progression before entering the harder zones. The player will first enter the plaza in which it is bordered by a building and cyberpunk themed fences (basically neon gates). There is only one exit to zone 3 which forces you to traverse to other end of the plaza. Vehicles and dirt boxes are also scattered throughout the map as obstacles. Once you exit the plaza you enter the street in which you traverse all the way to end to enter the park (Zone 3).
 
 | <sub>Zone B: Plaza and Harbor Street<sub>              |
 |  :------------: |
-|  <img src="./Materials/Animation & Visuals/ZoneB.png" width="50%"> | 
+|  <img src="./Materials/Animation & Visuals/ZoneB.png" width="80%"> | 
 #### Zone C - Park
 The third zone is the most technical challenging and unique zone. It is the smallest zone with the most obstacles. The building here is a detachment from the theme because I wanted this zone to be distinctively different given it's the most unique and challenging. So, the building is an Asian theme that fits with the aethestic of a park. The center most part of the zone has the least space. 
 
 Note: The buildings in this zone only is not drawn by me. They are sourced from a free-to-use assets package by Szadi art, [Houses Pack](https://szadiart.itch.io/houses-pack). The link to the [public license](/Materials/Animation%20&%20Visuals/houses_public-license.txt).
 | <sub>Zone C: Asian Park<sub>              |
 |  :------------: |
-|  <img src="./Materials/Animation & Visuals/ZoneC.png" width="50%"> | 
+|  <img src="./Materials/Animation & Visuals/ZoneC.png" width="80%"> | 
 
 *Technical Aspects*
 
@@ -109,11 +109,60 @@ The final zone is a little less challenging in terms of map design. You will tra
 Note: The boats are not drawn by me. They are sourced from a free-to-use assets package by Sami, [Pizel Art Sprite Speed Boats](https://samifd3f122.itch.io/free-pixel-art-boats?download). It has a CC0 1.0 license.
 | <sub>Zone D: Street to Boat Deck<sub>              |
 |  :------------: |
-|  <img src="./Materials/Animation & Visuals/ZoneD.png" width="50%"> | 
+|  <img src="./Materials/Animation & Visuals/ZoneD.png" width="80%"> | 
 ### Map Interactions
 ### Visual Guide for Characters
+
+Each character is animated in 64 by 64 pixels frames. Given this is a 2D top down shooter game, we decided to do 4 directions for each character (up, down, left, right).
+
+The animation for each character is done with 60 frames per second with each key frame at every 6 frames.
+
+Specific Visual Guides:
+ - Each character must have a black outlines.
+ - The character must have at least one facial "cyberpunk" characteristics (mask, hair, etc.)
+ - The gun must be a bright neon color with.
 ### The Player
-### The Enemies/Gangs
+
+The player visually is a relatively normal looking character with a cyberpunk mask. It's gun possess the color scheme of neon light blue and lime green. 
+
+| **Player Up** | **Player Down** |**Player Left** | **Player Right** | **Player Idle**
+| :------------: | :------------: | :------------: | :------------: | :------------: |
+| ![](/Materials/Animation%20&%20Visuals/player_up.gif)   | ![](/Materials/Animation%20&%20Visuals/player_down.gif) | ![](/Materials/Animation%20&%20Visuals/player_left.gif) | ![](/Materials/Animation%20&%20Visuals/player_right.gif) |![](/Materials/Animation%20&%20Visuals/player_idle.gif)|
+
+### Enemies
+
+*Gang A*
+
+The gang will progressively get more "cyperbunk". So the first gang is just a simple enemy with a crazy mohawk. It's gun is neon red/orange.
+| **Enemy A Up** | **Enemy A Down** |**Enemy A Left** | **Enemey A Right** | **Enemey A Idle**
+| :------------: | :------------: | :------------: | :------------: | :------------: |
+| ![](/Materials/Animation%20&%20Visuals/enemya_up.gif)   | ![](/Materials/Animation%20&%20Visuals/enemya_down.gif) | ![](/Materials/Animation%20&%20Visuals/enemya_left.gif) | ![](/Materials/Animation%20&%20Visuals/enemya_right.gif) |![](/Materials/Animation%20&%20Visuals/enemya_idle.gif)|
+
+*Gang B*
+
+The next enemy similarly is simple character. The enemy gang is characterized by a pink buzz cut and a neon purple gun.
+
+| **Enemy B Up** | **Enemy B Down** |**Enemy B Left** | **Enemey B Right** | **Enemey B Idle**
+| :------------: | :------------: | :------------: | :------------: | :------------: |
+| ![](/Materials/Animation%20&%20Visuals/enemyb_up.gif)   | ![](/Materials/Animation%20&%20Visuals/enemyb_down.gif) | ![](/Materials/Animation%20&%20Visuals/enemyb_left.gif) | ![](/Materials/Animation%20&%20Visuals/enemyb_right.gif) |![](/Materials/Animation%20&%20Visuals/enemyb_idle.gif)|
+
+*Gang C*
+
+Given this is for Zone C, the gang now well look more technologically advanced to match the higher skilled gameplay. Thus this gang is characterized by a cyperbunk themed helmet and holding a neon bright green gun. 
+
+| **Enemy C Up** | **Enemy C Down** |**Enemy C Left** | **Enemey C Right** | **Enemey C Idle**
+| :------------: | :------------: | :------------: | :------------: | :------------: |
+| ![](/Materials/Animation%20&%20Visuals/enemyc_up.gif)   | ![](/Materials/Animation%20&%20Visuals/enemyc_down.gif) | ![](/Materials/Animation%20&%20Visuals/enemyc_left.gif) | ![](/Materials/Animation%20&%20Visuals/enemyc_right.gif) |![](/Materials/Animation%20&%20Visuals/enemyc_idle.gif)|
+
+*Gang D*
+
+Finally gang D, similar to gang C will wear a cyberpunk themed helmet. This time it's gun is neon blue.
+
+| **Enemy D Up** | **Enemy D Down** |**Enemy D Left** | **Enemey D Right** | **Enemey D Idle**
+| :------------: | :------------: | :------------: | :------------: | :------------: |
+| ![](/Materials/Animation%20&%20Visuals/enemyd_up.gif)   | ![](/Materials/Animation%20&%20Visuals/enemyd_down.gif) | ![](/Materials/Animation%20&%20Visuals/enemyd_left.gif) | ![](/Materials/Animation%20&%20Visuals/enemyd_right.gif) |![](/Materials/Animation%20&%20Visuals/enemyd_idle.gif)|
+
+### Animation Set Up
 ### Weapons/Projectiles
 ## Game Logic
 
