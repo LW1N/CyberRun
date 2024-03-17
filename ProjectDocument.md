@@ -72,7 +72,7 @@ Implementing the map in the game environment, I used a rectangular grid and used
    - All signs must be neon and bright colors (they do not need to be outlined)
 
 #### Zone A - Parking Lot and Main Intersection
-This the first zone the player enters in, it contains one of the most open zones allowing for an easier fighting setting. It contains three obstacles types in the map: Building A, dirt box, and vehicles. Building A is a corner-shaped building in which the player cannot enter with neon signs (one of them pointing towards the direction you are supposed to go). There are vehicles and a dirt corner-shaped box in the parking lot the player can use to their advantage as barriers. 
+This is the first zone the player enters in, it contains one of the most open zones allowing for an easier fighting setting. It contains three obstacles types: Building A, dirt box, and vehicles. Building A is a corner-shaped building in which the player cannot enter with neon signs (one of them pointing towards the direction you are supposed to go). There are vehicles and a dirt corner-shaped box in the parking lot. The player can use to them to their advantage as barriers. 
 
 Note: The vehicles are not drawn by me. They are sourced from a free-to-use assets package by Tokka, [Top Down Cars Sprite Pack 1.0](https://tokka.itch.io/top-down-car). Any other mention of vehicles in other zones are also all from this asset source.
 
@@ -81,34 +81,36 @@ Note: The vehicles are not drawn by me. They are sourced from a free-to-use asse
 |  <img src="./Materials/Animation & Visuals/ZoneA.png" width="50%"> | 
 #### Zone B - Plaza and Harbor Street
 
-The second zone boast the largest zone with a plaza area and a large street. The large area allows for the most practice and skill progression before entering the harder zones. The player will first enter the plaza in which it is bordered by building and fences. There is only one exit to zone 3 which forces you to traverse to other end of the plaza. Vehicles and dirt boxes are also scattered throughout the map as other obstacles. Once you exit the plaza you enter the street in which you traverse all the way to end to enter the park (Zone 3).
+The second zone boast the largest zone with a plaza area and a large street. The large area allows for the most practice and skill progression before entering the harder zones. The player will first enter the plaza in which it is bordered by a building and cyberpunk themed fences (basically neon gates). There is only one exit to zone 3 which forces you to traverse to other end of the plaza. Vehicles and dirt boxes are also scattered throughout the map as obstacles. Once you exit the plaza you enter the street in which you traverse all the way to end to enter the park (Zone 3).
 
 | <sub>Zone B: Plaza and Harbor Street<sub>              |
 |  :------------: |
 |  <img src="./Materials/Animation & Visuals/ZoneB.png" width="50%"> | 
 #### Zone C - Park
-The third zone is the most technical challenging and unique zone. It is the smallest zone with the most obstacles. The building here is a detachment from the theme because I wanted this zone to be distinctively different given it's the most unique and challenging. Rather, the building is Asian theme that fits with the aethestic of a park. The center most part of the zone has the least space. 
+The third zone is the most technical challenging and unique zone. It is the smallest zone with the most obstacles. The building here is a detachment from the theme because I wanted this zone to be distinctively different given it's the most unique and challenging. So, the building is an Asian theme that fits with the aethestic of a park. The center most part of the zone has the least space. 
 
-Note: The buildings in this zone only is not drawn by me. They are souzed from a free-to-use assets package by Szadi art, [Houses Pack](https://szadiart.itch.io/houses-pack). The link to the [public license](/Materials/Animation%20&%20Visuals/houses_public-license.txt).
+Note: The buildings in this zone only is not drawn by me. They are sourced from a free-to-use assets package by Szadi art, [Houses Pack](https://szadiart.itch.io/houses-pack). The link to the [public license](/Materials/Animation%20&%20Visuals/houses_public-license.txt).
 | <sub>Zone C: Asian Park<sub>              |
 |  :------------: |
 |  <img src="./Materials/Animation & Visuals/ZoneC.png" width="50%"> | 
 
 *Technical Aspects*
 
-First once they enter, the parked van immediately moves to trap them in zone (the exit is blocked initially). This is done by a simple trigger Box Collider 2D that initiates the script function `OnTriggerEnter2d` to move the van straight downward until it blocks entrance. An `Enumerator` method was employed to allow the van to move to target location in one single call. 
+First once they enter, the parked van immediately moves to trap them in zone (the exit is blocked initially too). This is done by a simple trigger Box Collider 2D that initiates the script function `OnTriggerEnter2d` to move the van straight downward until it blocks entrance. An `Enumerator` method was employed to allow the van to move to target location in one single call. 
 | <sub>Entrance Trigger BoxCollider2D<sub>| <sub>Van Moving Mechanic<sub> |<sub>Exit Trigger BoxCollider2D<sub>
 | :------------: | :------------: | :------------: |
 | <img src="./Materials/Animation & Visuals/Zone3EntranceCollider.png" width="50%">      | ![](/Materials/Animation%20&%20Visuals/ZoneEnterMechanic.gif) | <img src="./Materials/Animation & Visuals/Zone3ExitCollider.png" width="60%"> |
 
-The only way for the van (from the exit) moves out of the way if it get's "scared". In other words, if you kill enough of the enemies, the van will leave. The function is created again by Box Collider 2D that checks if you killed enough enemies. If so, same script idea as above is used. 
+Now onto the exit. The only way for the van (the exit one) to move out of the way if it get's "scared". In other words, if you kill enough of the enemies, the van will leave. The function is created again by Box Collider 2D that checks if you killed enough enemies. If so, same script idea as above is used. 
 #### Zone D - Street to Boat Deck
 
-The final zone is a little less challening in terms of map design. You will traverse from one end to other end of the zone where the boat deck is. The player must choose to leave on the "escape boat" (it is the boat that has the most similar coloring scheme as the player's logo).
+The final zone is a little less challenging in terms of map design. You will traverse from one end to other end of the zone where the boat deck is. The player must choose to leave on the "escape boat" (it is the boat that has the most similar coloring scheme as the player's logo).
+
+Note: The boats are not drawn by me. They are sourced from a free-to-use assets package by Sami, [Pizel Art Sprite Speed Boats](https://samifd3f122.itch.io/free-pixel-art-boats?download). It has a CC0 1.0 license.
 | <sub>Zone D: Street to Boat Deck<sub>              |
 |  :------------: |
 |  <img src="./Materials/Animation & Visuals/ZoneD.png" width="50%"> | 
-#### Map Interactions
+### Map Interactions
 ### Visual Guide for Characters
 ### The Player
 ### The Enemies/Gangs
