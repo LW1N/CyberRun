@@ -87,10 +87,10 @@ The second zone boast the largest zone with a plaza area and a large street. The
 |  :------------: |
 |  <img src="./Materials/Animation & Visuals/ZoneB.png" width="80%"> | 
 #### Zone C - Park
-The third zone is the most technical challenging and unique zone. It is the smallest zone with the most obstacles. The building here is a detachment from the theme because I wanted this zone to be distinctively different given it's the most unique and challenging. So, the building is an Asian theme that fits with the aethestic of a park. The center most part of the zone has the least space. 
+The third zone is the most technical challenging and unique zone. It is the smallest zone with the most obstacles. The building here is a detachment from the theme because I wanted this zone to be distinctively different given it's the most unique and challenging. So, the building designs were choen to fit with the aethestic of a park. The center most part of the zone has the least space. 
 
-Note: The buildings in this zone only is not drawn by me. They are sourced from a free-to-use assets package by Szadi art, [Houses Pack](https://szadiart.itch.io/houses-pack). The link to the [public license](/Materials/Animation%20&%20Visuals/houses_public-license.txt).
-| <sub>Zone C: Asian Park<sub>              |
+Note: The buildings in this zone only are not drawn by me. They are sourced from a free-to-use assets package by Szadi art, [Houses Pack](https://szadiart.itch.io/houses-pack). The link to the [public license](/Materials/Animation%20&%20Visuals/houses_public-license.txt).
+| <sub>Zone C:  Park<sub>              |
 |  :------------: |
 |  <img src="./Materials/Animation & Visuals/ZoneC.png" width="80%"> | 
 
