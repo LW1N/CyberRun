@@ -5,11 +5,12 @@ public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     private int currentHealth;
-    public Text healthText; 
+    public Slider healthSlider;
 
     void Start()
     {
         currentHealth = maxHealth;
+        healthSlider.maxValue = maxHealth;
         // Update the UI at the start
         UpdateHealthUI(); 
         Debug.Log("Player Health system initialized."); 
@@ -40,10 +41,10 @@ public class PlayerHealth : MonoBehaviour
 
     void UpdateHealthUI()
     {
-        if (healthText != null)
+        if (healthSlider != null)
         {
             Debug.Log($"Updating UI with Current Health: {currentHealth}"); 
-            healthText.text = $"Health: {currentHealth}";
+            healthSlider.value = currentHealth;
         }
         else
         {

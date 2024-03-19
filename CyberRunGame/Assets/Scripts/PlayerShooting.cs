@@ -102,7 +102,7 @@ public class PlayerShoot : MonoBehaviour
                 GameObject target = FindClosestTarget(position);
                 if (target != null)
                 {
-                    beamScript.SetToFollow(target, speed);
+                    //beamScript.SetToFollow(target, speed);
                 }
                 else
                 {
