@@ -2,28 +2,29 @@ using UnityEngine;
 
 public class BeamScript : MonoBehaviour
 {
-    // The amount of damage this beam deals
+    // Base damage of the beam
     public int damageAmount = 10; 
-
-    void Start()
-    {
-        //Destroy(gameObject, 4f); // Destroy the beam after 4 seconds (doesnt work yet)
-    }
+    public int pierceCount = 0; 
 
     void OnTriggerEnter2D(Collider2D other)
     {
         // Check if the beam collides with an enemy
-        if (other.gameObject.CompareTag("Finish")) 
+        if (other.gameObject.CompareTag("Finish")) // Assuming the tag is "Enemy" for enemies
         {
             // Attempt to access the EnemyHealth script on the collided object
             EnemyHealth enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
-            if (enemyHealth != null) 
+            if (enemyHealth != null)
             {
                 // Apply damage
-                enemyHealth.TakeDamage(damageAmount); 
+                enemyHealth.TakeDamage(damageAmount);
             }
-            // Destroy the beam after hitting the enemy
-            Destroy(gameObject); 
+
+            // Manage pierce functionality
+            pierceCount--;
+            if (pierceCount < 0)
+            {
+                Destroy(gameObject); 
+            }
         }
     }
 }
