@@ -1,11 +1,17 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerShoot : MonoBehaviour
 {
-    public GameObject beamPrefab; // Assign your beam prefab here
-    public Transform firePoint; // Assign the fire point transform here
-    public bool tripleShotEnabled = false; // Whether the triple shot upgrade is enabled
-    public float beamSpeed = 20f; // Speed at which the beam will move
+    public GameObject beamPrefab;
+    public Transform firePoint; 
+    public float beamSpeed = 20f; 
+    private int moreBulletsLevel = 0;
+    private int fasterBulletsLevel = 0;
+    private int followingBulletsLevel = 0;
+    private int strongerBulletsLevel = 0;
+    private int piercingBulletsLevel = 0;
+    private bool laserEnabled = false;
 
     void Update()
     {
@@ -18,44 +24,121 @@ public class PlayerShoot : MonoBehaviour
     void Shoot()
     {
         Vector2 direction = CalculateDirection();
-        if (tripleShotEnabled)
+        int totalBullets = 1 + moreBulletsLevel;
+
+        for (int i = 0; i < totalBullets; i++)
         {
-            // Shoot one beam directly towards the cursor
-            InstantiateBeam(firePoint.position, direction);
-
-            // For the angled shots, calculate a slight angle to the left and right
-            Vector2 leftDirection = Quaternion.Euler(0, 0, -5) * direction;
-            Vector2 rightDirection = Quaternion.Euler(0, 0, 5) * direction;
-
-            // Shoot the left and right beams with a small positional offset
-            InstantiateBeam(firePoint.position + new Vector3(-0.5f, 0, 0), leftDirection);
-            InstantiateBeam(firePoint.position + new Vector3(0.5f, 0, 0), rightDirection);
+            Vector3 positionOffset = new Vector3((i - (totalBullets - 1) / 2.0f) * 0.5f, 0, 0);
+            InstantiateBeam(firePoint.position + positionOffset, direction, beamSpeed + (fasterBulletsLevel * 5));
         }
-        else
+    }
+
+    public void Upgrade(string upgradeType)
+    {
+        switch (upgradeType)
         {
-            // If triple shot is not enabled, shoot a single beam towards the cursor
-            InstantiateBeam(firePoint.position, direction);
+            case "MoreBullets":
+                moreBulletsLevel++;
+                break;
+            case "FasterBullets":
+                fasterBulletsLevel++;
+                break;
+            case "FollowingBullets":
+                followingBulletsLevel = followingBulletsLevel == 0 ? 1 : 0;
+                break;
+            case "StrongerBullets":
+                strongerBulletsLevel++;
+                break;
+            case "PiercingBullets":
+                piercingBulletsLevel++;
+                break;
+            case "Laser":
+                laserEnabled = !laserEnabled;
+                break;
+            default:
+                Debug.LogError("Unknown upgrade type: " + upgradeType);
+                break;
+        }
+    }
+
+    public int GetUpgradeLevel(string upgradeType)
+    {
+        switch (upgradeType)
+        {
+            case "MoreBullets":
+                return moreBulletsLevel;
+            case "FasterBullets":
+                return fasterBulletsLevel;
+            case "FollowingBullets":
+                return followingBulletsLevel;
+            case "StrongerBullets":
+                return strongerBulletsLevel;
+            case "PiercingBullets":
+                return piercingBulletsLevel;
+            case "Laser":
+                return laserEnabled ? 1 : 0;
+            default:
+                Debug.LogError("Unknown upgrade type: " + upgradeType);
+                return 0;
         }
     }
 
     Vector2 CalculateDirection()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 direction = (mousePosition - (Vector2)firePoint.position).normalized;
-        return direction;
+        return (mousePosition - (Vector2)firePoint.position).normalized;
     }
 
-    void InstantiateBeam(Vector2 position, Vector2 direction)
+    void InstantiateBeam(Vector2 position, Vector2 direction, float speed)
     {
         GameObject beam = Instantiate(beamPrefab, position, Quaternion.identity);
         Rigidbody2D rb = beam.GetComponent<Rigidbody2D>();
-        if (rb != null)
+        BeamScript beamScript = beam.GetComponent<BeamScript>();
+
+        if (rb != null && beamScript != null)
         {
-            rb.velocity = direction * beamSpeed;
+            if (followingBulletsLevel == 1)
+            {
+                GameObject target = FindClosestTarget(position);
+                if (target != null)
+                {
+                    beamScript.SetToFollow(target, speed);
+                }
+                else
+                {
+                    rb.velocity = direction * speed;
+                }
+            }
+            else
+            {
+                rb.velocity = direction * speed;
+            }
+
+            beamScript.damageAmount += strongerBulletsLevel * 10;
+            beamScript.pierceCount = piercingBulletsLevel;
         }
         else
         {
-            Debug.LogError("Beam prefab does not have a Rigidbody2D component.");
+            Debug.LogError("Beam prefab is missing required components (Rigidbody2D or BeamScript).");
         }
+    }
+
+    GameObject FindClosestTarget(Vector2 position)
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject closestEnemy = null;
+        float closestDistance = Mathf.Infinity;
+
+        foreach (GameObject enemy in enemies)
+        {
+            float distanceToEnemy = Vector2.Distance(position, enemy.transform.position);
+            if (distanceToEnemy < closestDistance)
+            {
+                closestDistance = distanceToEnemy;
+                closestEnemy = enemy;
+            }
+        }
+
+        return closestEnemy;
     }
 }
