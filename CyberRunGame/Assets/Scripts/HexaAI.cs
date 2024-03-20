@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour
+public class HexaAI : MonoBehaviour
 {
     public Transform target; 
     public float speed = 5f;

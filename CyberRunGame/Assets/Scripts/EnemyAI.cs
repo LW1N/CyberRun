@@ -84,7 +84,11 @@ public class EnemyAI : MonoBehaviour
     }
     void InstantiateBeam(Vector2 direction, float speed)
     {
-        GameObject beam = Instantiate(fireballPrefab, transform.position, Quaternion.identity);
+        // Adjust position so not at feet
+        float firingOffset = 0.71f;
+        Vector3 firePosition = new Vector3(transform.position.x, transform.position.y + firingOffset, transform.position.z);
+
+        GameObject beam = Instantiate(fireballPrefab, firePosition, Quaternion.identity);
         Rigidbody2D rb = beam.GetComponent<Rigidbody2D>();
         BeamScript beamScript = beam.GetComponent<BeamScript>();
         float lifeSpan = 1.0f;
@@ -102,6 +106,6 @@ public class EnemyAI : MonoBehaviour
 
 
         // Clean gameobject after certain time
-        // Destroy(beam, lifeSpan);
+        Destroy(beam, lifeSpan);
     }
 }
