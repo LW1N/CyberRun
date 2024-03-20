@@ -94,6 +94,7 @@ public class PlayerShoot : MonoBehaviour
         GameObject beam = Instantiate(beamPrefab, position, Quaternion.identity);
         Rigidbody2D rb = beam.GetComponent<Rigidbody2D>();
         BeamScript beamScript = beam.GetComponent<BeamScript>();
+        float lifeSpan = 1.0f;
 
         if (rb != null && beamScript != null)
         {
@@ -121,6 +122,9 @@ public class PlayerShoot : MonoBehaviour
         {
             Debug.LogError("Beam prefab is missing required components (Rigidbody2D or BeamScript).");
         }
+
+        // Clean gameobject after certain time
+        Destroy(beam, lifeSpan);
     }
 
     GameObject FindClosestTarget(Vector2 position)
