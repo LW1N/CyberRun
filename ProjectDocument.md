@@ -31,9 +31,14 @@ Here is an example:
 
 You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
 
-## Producer
+## Producer - Lucas Nguyen
+*Project Timeline* - Here is a Gantt chart that depicts the timeline in which our project was completed.
 
-**Describe the steps you took in your role as producer. Typical items include group scheduling mechanisms, links to meeting notes, descriptions of team logistics problems with their resolution, project organization tools (e.g., timelines, dependency/task tracking, Gantt charts, etc.), and repository management methodology.**
+*Group Meeting/Scheduling* - Because of all of our heavy workload, we decided on Discord as our main source of communication. There we were able to communicate in a very timely manner at any given point in the day no matter location constraints or scheduling conflicts. During project development the group discord remained active every day with questions being answered within a few minutes. Though we would maintain active communication most days, every week we would meet over a voice call and discuss what was currently in progress as well as what we would need to complete/begin working on moving forward. In the case that a team member became inactive or was taking additional time with a task, I would reach out to make sure that everything was okay and provide any needed assistance with the task.
+
+*Project Documents* - I took full responsibility of the project documents(such as the Initial Plan, Gantt Chart, Progress Reports, & Project Document). In order to take load off of the other members and free up time for them to tackle more of the heavy programming related tasks, I made sure to be the main organizer/coordinator towards the documentation of the project. When approaching each document I would take note of each group members' input and elaborate further in order to fulfill the requirements of the document. I worked closely with each member to ensure that everyone's input would make its way on to every document.
+
+*Repository Management* - Most of the time we were able to complete tasks without having issues merging back on to the main branch. This was due to the fact that a lot of our tasks were able to be further broken down in a way that pushes and commits could be completed quite quickly one after the other. This resulted in very few conflicts because of very little overlapping work. Though, at the few times that we would run into a merge conflict, I was responsible for stepping in to work with both sides of the conflict and manually resolve it myself.
 
 ## User Interface and Input
 
@@ -178,11 +183,10 @@ Finally gang D, similar to gang C will wear a cyberpunk themed helmet. This time
 
 **Document the sound style.** 
 
-## Gameplay Testing
+## Gameplay Testing/DevOps - Lucas Nguyen
+*Testing* - When testing the game I would communicate thoroughly with the team and the specific team members that were responsible for any specific bugs that I would find. The simplicity of the game mechanics meant that a lot of testing was easily solved done with the use of debugging statements and console error messages. Testing felt very efficient with discord as I was able to reach out and provide feedback very fast through messages and calls.
 
-**Add a link to the full results of your gameplay tests.**
-
-**Summarize the key findings from your gameplay tests.**
+*Bug Fixing* - I also went through the code on my spare time to perform code cleaning to ensure that the codebase remained organized and did not get flooded with abandoned features and messy code. There were also times when a team member was not available, to respond quickly to my testing feedback. In this case, I was able to perform my own bug fixes by modifying and fixing minor sections of code. When doing so I made sure to not perform major changes, only conducting my own bug fixes if they were minor and did not majorly affect the state of the game.
 
 ## Narrative Design
 
