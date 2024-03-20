@@ -1,6 +1,6 @@
-# Wanted: Cyber Run #
+# Wanted: Cyber Run
 
-## Summary ##
+## Summary
 
 **A paragraph-length pitch for your game.**
 
@@ -11,7 +11,7 @@
 [Press Kit](https://dopresskit.com/)  
 [Proposal: Initial Plan](https://docs.google.com/document/d/1mTcej1XkV0b86fvPoavogw3iHswhOYx9IMi1iMxz6IA/edit?usp=sharing)  
 
-## Gameplay Explanation ##
+## Gameplay Explanation
 
 **In this section, explain how the game should be played. Treat this as a manual within a game. Explaining the button mappings and the most optimal gameplay strategy is encouraged.**
 **Input**
@@ -26,7 +26,7 @@
 - Keep moving so that it is hard for the enemies to hit you
 - Keep firing at enemies to collect money and prevent too many from spawning
 
-# Main Roles #
+# Main Roles
 
 Your goal is to relate the work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
 
@@ -191,7 +191,7 @@ Finally gang D, similar to gang C will wear a cyberpunk themed helmet. This time
 
 **Document the sound style.** 
 
-## Gameplay Testing/DevOps - Lucas Nguyen
+## Gameplay Testing/Bug Fixing - Lucas Nguyen
 *Testing* - When testing the game I would communicate thoroughly with the team and the specific team members that were responsible for any specific bugs that I would find. The simplicity of the game mechanics meant that a lot of testing was easily solved done with the use of debugging statements and console error messages. Testing felt very efficient with discord as I was able to reach out and provide feedback very fast through messages and calls.
 
 *Bug Fixing* - I also went through the code on my spare time to perform code cleaning to ensure that the codebase remained organized and did not get flooded with abandoned features and messy code. There were also times when a team member was not available, to respond quickly to my testing feedback. In this case, I was able to perform my own bug fixes by modifying and fixing minor sections of code. When doing so I made sure to not perform major changes, only conducting my own bug fixes if they were minor and did not majorly affect the state of the game.
