@@ -14,11 +14,12 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth -= damage;
         Debug.Log($"Enemy Health: {currentHealth}/{maxHealth}");
+        
         // Drops money upon death 
         if (currentHealth <= 0)
         {
             MoneyManager.instance.AddMoney(10);
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
 }

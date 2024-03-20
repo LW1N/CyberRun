@@ -19,6 +19,7 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         myAnim = GetComponent<Animator>(); // gets Animator component
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
@@ -83,7 +84,8 @@ public class EnemyAI : MonoBehaviour
     }
     void InstantiateBeam(Vector2 direction, float speed)
     {
-        GameObject beam = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        Vector3 firePoint = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z);
+        GameObject beam = Instantiate(projectilePrefab, firePoint, Quaternion.identity);
         Rigidbody2D rb = beam.GetComponent<Rigidbody2D>();
         BeamScript beamScript = beam.GetComponent<BeamScript>();
         float lifeSpan = 1.0f;
