@@ -12,7 +12,7 @@ public class StartButton : MonoBehaviour
     }
     public void LoadFirstScene()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("GameScene");
     }
 
     public void ExitGame()

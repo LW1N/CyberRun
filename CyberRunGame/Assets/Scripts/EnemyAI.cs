@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyAI2 : MonoBehaviour
+public class EnemyAI : MonoBehaviour
 {
     public Transform player; // Assign the player's Transform in the Inspector
     private Animator myAnim;

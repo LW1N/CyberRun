@@ -10,10 +10,16 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        healthSlider.maxValue = maxHealth;
-        // Update the UI at the start
-        UpdateHealthUI(); 
-        Debug.Log("Player Health system initialized."); 
+        if (healthSlider == null) {
+            Debug.Log("No healthSlider object");
+        }
+
+        else{
+            healthSlider.maxValue = maxHealth;
+            // Update the UI at the start
+            UpdateHealthUI(); 
+            Debug.Log("Player Health system initialized."); 
+        }
     }
 
     public void TakeDamage(int damage)
