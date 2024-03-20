@@ -20,8 +20,8 @@ public class BeamScript : MonoBehaviour
                 {
                     // Apply damage
                     enemyHealth.TakeDamage(damageAmount);
-                    Debug.Log(other.gameObject);
-                    Destroy(other.gameObject);
+                    // Debug.Log(other.gameObject);
+                    // Destroy(other.gameObject);
                 }
 
                 // Manage pierce functionality
