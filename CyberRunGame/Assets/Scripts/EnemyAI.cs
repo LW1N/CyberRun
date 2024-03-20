@@ -1,16 +1,19 @@
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour
+public class EnemyAI2 : MonoBehaviour
 {
     public Transform player; // Assign the player's Transform in the Inspector
-    public float moveSpeed = 5f; // Enemy move speed
-    public float stopDistance = 10f; // Distance at which the enemy stops moving towards the player
-    public GameObject fireballPrefab; // Assign a fireball prefab in the Inspector
-    public float shootingInterval = 2f; // Time between shots
-    private float timeSinceLastShot = 0f;
     private Animator myAnim;
     private Vector2 lastPosition = new Vector2(0f, 0f);
+    public GameObject projectilePrefab; // Assign a fireball prefab in the Inspector
+    public float projectileSpeed = 10f;
+    public float moveSpeed = 5f; // Enemy move speed
+    public float stopDistance = 10f; // Distance at which the enemy stops moving towards the player
+    public float shootingInterval = 2f; // Time between shots
+    private float timeSinceLastShot = 0f;
+    
     public float interpolationSpeed = 5f;
+    
 
 
     void Start()
@@ -70,12 +73,8 @@ public class EnemyAI : MonoBehaviour
             // Reset timeSinceLastShot
             timeSinceLastShot = 0f;
             
-            // Instantiate fireball directed towards the player
-            InstantiateBeam(((Vector2)player.position - (Vector2)transform.position).normalized, 20f);
-            // Rigidbody2D rb = fireball.GetComponent<Rigidbody2D>();
-            // Vector3 shootingDirection = (player.position - transform.position).normalized;
-            // Vector3 shootingDirection = (player.position);
-            // fireball.GetComponent<Fireball>().Shoot(shootingDirection);
+            // Instantiate projectile directed towards the player
+            InstantiateBeam(((Vector2)player.position - (Vector2)transform.position).normalized, projectileSpeed);
         }
         else
         {
@@ -84,11 +83,7 @@ public class EnemyAI : MonoBehaviour
     }
     void InstantiateBeam(Vector2 direction, float speed)
     {
-        // Adjust position so not at feet
-        float firingOffset = 0.71f;
-        Vector3 firePosition = new Vector3(transform.position.x, transform.position.y + firingOffset, transform.position.z);
-
-        GameObject beam = Instantiate(fireballPrefab, firePosition, Quaternion.identity);
+        GameObject beam = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         Rigidbody2D rb = beam.GetComponent<Rigidbody2D>();
         BeamScript beamScript = beam.GetComponent<BeamScript>();
         float lifeSpan = 1.0f;
@@ -101,9 +96,6 @@ public class EnemyAI : MonoBehaviour
         {
             Debug.LogError("Beam prefab is missing required components (Rigidbody2D or BeamScript).");
         }
-        Debug.LogError("Shoot at " + direction);
-        Debug.LogError("Velocity is " + rb.velocity);
-
 
         // Clean gameobject after certain time
         Destroy(beam, lifeSpan);
