@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
         // Determine speed based on sprinting status
         currentSpeed = isSprinting ? sprintSpeed : normalSpeed;
 
+        // Set animator parameters
         if (movement.x != 0 || movement.y != 0)
         {
             animator.SetFloat("X", movement.x);
@@ -54,7 +55,8 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsWalking", false);
         }
 
-        rb.MovePosition(rb.position + movement * currentSpeed * Time.fixedDeltaTime); // Move the player
+        // Move the player
+        rb.MovePosition(rb.position + movement * currentSpeed * Time.fixedDeltaTime);
 
         // Update sprint timer if player is sprinting
         if (isSprinting)
