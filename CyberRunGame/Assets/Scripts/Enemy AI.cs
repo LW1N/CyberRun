@@ -3,14 +3,17 @@ using UnityEngine;
 public class EnemyAI2 : MonoBehaviour
 {
     public Transform player; // Assign the player's Transform in the Inspector
-    public float moveSpeed = 5f; // Enemy move speed
-    public float stopDistance = 10f; // Distance at which the enemy stops moving towards the player
-    public GameObject projectilePrefab; // Assign a fireball prefab in the Inspector
-    public float shootingInterval = 2f; // Time between shots
-    private float timeSinceLastShot = 0f;
     private Animator myAnim;
     private Vector2 lastPosition = new Vector2(0f, 0f);
+    public GameObject projectilePrefab; // Assign a fireball prefab in the Inspector
+    public float projectileSpeed = 10f;
+    public float moveSpeed = 5f; // Enemy move speed
+    public float stopDistance = 10f; // Distance at which the enemy stops moving towards the player
+    public float shootingInterval = 2f; // Time between shots
+    private float timeSinceLastShot = 0f;
+    
     public float interpolationSpeed = 5f;
+    
 
 
     void Start()
@@ -70,12 +73,8 @@ public class EnemyAI2 : MonoBehaviour
             // Reset timeSinceLastShot
             timeSinceLastShot = 0f;
             
-            // Instantiate fireball directed towards the player
-            InstantiateBeam(((Vector2)player.position - (Vector2)transform.position).normalized, 20f);
-            // Rigidbody2D rb = fireball.GetComponent<Rigidbody2D>();
-            // Vector3 shootingDirection = (player.position - transform.position).normalized;
-            // Vector3 shootingDirection = (player.position);
-            // fireball.GetComponent<Fireball>().Shoot(shootingDirection);
+            // Instantiate projectile directed towards the player
+            InstantiateBeam(((Vector2)player.position - (Vector2)transform.position).normalized, projectileSpeed);
         }
         else
         {
