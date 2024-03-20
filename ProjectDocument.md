@@ -14,9 +14,17 @@
 ## Gameplay Explanation ##
 
 **In this section, explain how the game should be played. Treat this as a manual within a game. Explaining the button mappings and the most optimal gameplay strategy is encouraged.**
+**Input**
+*W* - Moves the Player up
+*A* - Moves the Player to the left
+*S* - Moves the Player down
+*D* - Moves the Player to the right
 
+*Left Mouse Click* - Fire Player weapon
 
-**Add it here if you did work that should be factored into your grade but does not fit easily into the proscribed roles! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
+**Gameplay Strategy**
+- Keep moving so that it is hard for the enemies to hit you
+- Keep firing at enemies to collect money and prevent too many from spawning
 
 # Main Roles #
 
