@@ -2,16 +2,13 @@
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float normalSpeed = 5.0f; // Normal speed of the player
-    public float sprintSpeed = 8.0f; // Speed of the player while sprinting
-    public float sprintDuration = 3.0f; // Duration of sprint in seconds
-
     private float currentSpeed; // Current speed of the player
-    private float sprintTimer; // Timer for sprint duration
-    private bool isSprinting; // Flag to indicate if player is currently sprinting
 
     private Rigidbody2D rb;
     private Animator animator;
+    private PlayerSprint playerSprint;
+
+    public float NormalSpeed { get; private set; } = 5.0f; // Normal speed of the player
 
     void Start()
     {
@@ -19,17 +16,10 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>(); // Get Animator component
 
         // Set initial speed to normal speed
-        currentSpeed = normalSpeed;
-        isSprinting = false;
-    }
+        SetSpeed(NormalSpeed);
 
-    void Update()
-    {
-        // Check if player can start sprinting
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !isSprinting)
-        {
-            StartSprint();
-        }
+        // Get reference to the PlayerSprint script
+        playerSprint = GetComponent<PlayerSprint>(); // Changed reference to PlayerSprint script
     }
 
     void FixedUpdate()
@@ -39,9 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector2 movement = new Vector2(moveHorizontal, moveVertical).normalized;
 
-        // Determine speed based on sprinting status
-        currentSpeed = isSprinting ? sprintSpeed : normalSpeed;
-
+        // Set animator parameters
         if (movement.x != 0 || movement.y != 0)
         {
             animator.SetFloat("X", movement.x);
@@ -54,31 +42,25 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsWalking", false);
         }
 
-        rb.MovePosition(rb.position + movement * currentSpeed * Time.fixedDeltaTime); // Move the player
+        // Move the player
+        rb.MovePosition(rb.position + movement * currentSpeed * Time.fixedDeltaTime);
+    }
 
-        // Update sprint timer if player is sprinting
-        if (isSprinting)
-        {
-            sprintTimer -= Time.fixedDeltaTime;
-            if (sprintTimer <= 0)
-            {
-                StopSprint();
-            }
-        }
+    // Method to set the speed of the player
+    public void SetSpeed(float speed)
+    {
+        currentSpeed = speed;
     }
 
     // Method to start sprinting
-    void StartSprint()
+    public void StartSprint()
     {
-        isSprinting = true;
-        currentSpeed = sprintSpeed;
-        sprintTimer = sprintDuration;
+        playerSprint.StartSprint();
     }
 
     // Method to stop sprinting
-    void StopSprint()
+    public void StopSprint()
     {
-        isSprinting = false;
-        currentSpeed = normalSpeed;
+        playerSprint.StopSprint();
     }
 }

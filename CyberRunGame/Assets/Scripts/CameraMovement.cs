@@ -2,11 +2,15 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform player; 
-    public Vector3 offset = new Vector3(0, 0, -10);
+    public Transform player;
+    public Vector3 offset = new Vector3(0, 1.5f, -10); // Adjust the y offset to position the camera at the torso level
 
     void LateUpdate()
     {
-        transform.position = new Vector3(player.position.x + offset.x, player.position.y + offset.y, offset.z);
+        // Calculate the desired position for the camera
+        Vector3 desiredPosition = player.position + offset;
+
+        // Update the camera's position
+        transform.position = desiredPosition;
     }
 }
