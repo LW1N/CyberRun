@@ -6,7 +6,9 @@ public class EnemySpawner : MonoBehaviour
     public GameObject enemyPrefab2;
     public GameObject enemyPrefab3;
     public GameObject enemyPrefab4;
+    public float zone;
     public float spawnInterval = 2f; // Time between spawns
+    public LayerMask triggerLayer; // Layer mask to filter trigger zones
     private Camera mainCamera;
     private float timer;
 
@@ -18,13 +20,28 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
+        GameObject player = GameObject.FindWithTag("Player");
+        bool isPlayerInTriggerZone = Physics2D.OverlapCircle(player.transform.position, 1f, triggerLayer) != null;
+        Debug.Log(zone);
+        Debug.Log(isPlayerInTriggerZone);
         timer -= Time.deltaTime;
-        if (timer <= 0)
+        if (timer <= 0 && isPlayerInTriggerZone)
         {
-            SpawnEnemyAtZoneA();
-            SpawnEnemyAtZoneB();
-            SpawnEnemyAtZoneC();
-            SpawnEnemyAtZoneD();
+            if (zone == 1)
+            {
+                SpawnEnemyAtZoneA();
+            }
+            if (zone == 2)
+            {
+                SpawnEnemyAtZoneB();
+            }if (zone == 3)
+            {
+                SpawnEnemyAtZoneC();
+            }
+            if (zone == 4)
+            {
+                SpawnEnemyAtZoneD();
+            }
             timer = spawnInterval; // Reset the timer
         }
     }

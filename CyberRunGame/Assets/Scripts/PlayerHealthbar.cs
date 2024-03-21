@@ -1,3 +1,4 @@
+using System.Collections; 
 using UnityEngine;
 using UnityEngine.UI; // Include this for UI updates
 
@@ -6,6 +7,12 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth = 100;
     private int currentHealth;
     public Slider healthSlider;
+    public Renderer playerRenderer; // Reference to the player's renderer
+    public Color damageColor = Color.red; // Color to indicate damage
+    public float colorChangeDuration = 0.2f;
+
+    private Color originalColor;
+
 
     void Start()
     {
@@ -30,11 +37,24 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log($"Player took {damage} damage. Current Health: {currentHealth}/{maxHealth}");
         UpdateHealthUI(); 
 
+        if (playerRenderer != null)
+        {
+            // Change color temporarily to indicate damage
+            StartCoroutine(ChangeColorTemporary(damageColor));
+        }
+
         if (currentHealth <= 0)
         {
             Debug.Log("Player Died");
             GameManager.instance.ShowGameOverScreen(true);
         }
+        
+    }
+    IEnumerator ChangeColorTemporary(Color color)
+    {
+        playerRenderer.material.color = color;
+        yield return new WaitForSeconds(colorChangeDuration);
+        playerRenderer.material.color = Color.white;
     }
 
     public void Heal(int amount)

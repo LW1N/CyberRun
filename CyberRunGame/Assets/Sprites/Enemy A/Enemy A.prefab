@@ -119,7 +119,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 1}
@@ -133,7 +133,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 1.0926094, y: 2}
   m_EdgeRadius: 0
 --- !u!61 &3662074741975064774
 BoxCollider2D:
@@ -241,6 +241,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  enemyRenderer: {fileID: 1183872670864879936}
+  damageColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  colorChangeDuration: 0.2
 --- !u!114 &-6070511822667040483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,7 +257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  projectilePrefab: {fileID: 1950837111235763694, guid: abf5c4240f812ee48aaf1b2bcb76b4ce, type: 3}
+  projectilePrefab: {fileID: 5225427432195430606, guid: 4a986c1ab4f15754486db3323f1c9444, type: 3}
   projectileSpeed: 10
   moveSpeed: 5
   stopDistance: 5
