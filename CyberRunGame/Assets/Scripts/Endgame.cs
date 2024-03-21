@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneSwitch : MonoBehaviour
 {
     public int sceneBuildIndex;
-    public int money;
+    public int goal;
     public GameObject uiObject;
 
     void Start()
@@ -21,7 +21,7 @@ public class SceneSwitch : MonoBehaviour
             int moneyAmount = MoneyManager.instance.money;
             Debug.Log($"Current money amount: {moneyAmount}");
             // Check if the object to move is not null
-            if (moneyAmount >= money)
+            if (moneyAmount >= goal)
             {
                 SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
             }
