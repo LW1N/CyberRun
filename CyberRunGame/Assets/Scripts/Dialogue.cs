@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class Dialogue : MonoBehaviour
@@ -61,6 +62,8 @@ public class Dialogue : MonoBehaviour
         else
         {
             gameObject.SetActive(false);
+            // Load the specified scene when dialogue finishes
+            SceneManager.LoadScene(0,LoadSceneMode.Single);
         }
     }
 }
