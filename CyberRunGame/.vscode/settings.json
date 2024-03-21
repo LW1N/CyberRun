@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "CyberRunGame.sln"
+    "dotnet.defaultSolution": "My project (8).sln"
 }

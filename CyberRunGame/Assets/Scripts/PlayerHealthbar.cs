@@ -5,7 +5,7 @@ using UnityEngine.UI; // Include this for UI updates
 public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100;
-    private int currentHealth;
+    public int currentHealth;
     public Slider healthSlider;
     public Renderer playerRenderer; // Reference to the player's renderer
     public Color damageColor = Color.red; // Color to indicate damage

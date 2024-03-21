@@ -3,18 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject player;
     public GameObject shopPanel;
 
     public GameObject gameOverScreen;
 
     public PlayerHealth playerHealth;
-    public Vector3 playerStartPosition;
-
-    // Placeholder for player's gold, CHANGE PLEASE 
-    public int playerGold = 0; 
-
+    public int playerGold = 0;
     public static GameManager instance;
+    public static bool IsShopOpen = false;
 
     private void Awake()
     {
@@ -29,13 +25,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        IsShopOpen = shopPanel != null && shopPanel.activeSelf;
+        // Check if the B button is pressed
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            ContinueToShop();
+        }
+    }
+
     public void ShowGameOverScreen(bool show)
     {
         gameOverScreen.SetActive(show);
-        // Pause the game
-        if (show) Time.timeScale = 0f; 
-        // Resume the game
-        else Time.timeScale = 1f; 
+        // Pause the game when showing the game over screen
+        Time.timeScale = show ? 0f : 1f;
     }
 
     public void RestartGame()
@@ -47,20 +51,11 @@ public class GameManager : MonoBehaviour
     }
     public void ContinueToShop()
     {
-        // Hide game over screen
-        ShowGameOverScreen(false);
+        bool isShopActive = shopPanel.activeSelf;
+        shopPanel.SetActive(!isShopActive); // Toggle the active state of the shop panel
 
-        // Show the shop panel
-        if (shopPanel != null)
-        {
-            shopPanel.SetActive(true);
-            // Optionally, pause the game if the shop is shown or make necessary adjustments
-            Time.timeScale = 0f; // Pause the game if necessary
-        }
-        else
-        {
-            Debug.LogError("Shop panel not set in GameManager.");
-        }
+        // Pause the game if the shop panel is now active, otherwise unpause
+        Time.timeScale = isShopActive ? 1f : 0f;
     }
 
     public void ContinueGame()
@@ -71,28 +66,15 @@ public class GameManager : MonoBehaviour
 
         // Ensure the game is no longer paused
         Time.timeScale = 1f;
-
-        // Check if the player's health component is assigned
-        if (playerHealth != null)
-        {
-            // Directly set the player's health to maxHealth for full restoration
-            playerHealth.Heal(100);
-            // Respawn
-            player.transform.position = playerStartPosition;
-        }
-        else
-        {
-            Debug.LogError("PlayerHealth component not set in GameManager.");
-        }
     }
 
     public void ExitGame()
     {
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-        #else
+#else
         Application.Quit();
-        #endif
+#endif
     }
 
 
