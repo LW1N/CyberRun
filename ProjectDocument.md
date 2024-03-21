@@ -136,6 +136,9 @@ Note: The boats are not drawn by me. They are sourced from a free-to-use assets 
 ### Map Interactions
 
 With the buildings and other obstacles included in the map, the following tilemap hierachy was established for flexibility in adjusting certain collision parameters. This will be discussed more in [Game Feel](#game-feel-and-polish) (which was also my role), but `TileMap Collider 2D` and `RigidBody2d` was used on these obstacles so the players can interact with. A `Composite Collider 2D` was also implemented so there would not be individual tilemap colliders for each tile--making it less intensive to run.
+| **Composite Collider 2D** |
+| :------------: |
+| <img src="./Materials/Animation & Visuals/BuildingACollider.png" width="50%">|
 
 Some colliders were adjusted to create a more realistic interaction with these objects (see [Game Feel](#game-feel-and-polish)).
 
@@ -193,6 +196,14 @@ Finally gang D, similar to gang C will wear a cyberpunk themed helmet. This time
 | :------------: | :------------: | :------------: | :------------: | :------------: |
 | ![](/Materials/Animation%20&%20Visuals/enemyd_up.gif)   | ![](/Materials/Animation%20&%20Visuals/enemyd_down.gif) | ![](/Materials/Animation%20&%20Visuals/enemyd_left.gif) | ![](/Materials/Animation%20&%20Visuals/enemyd_right.gif) |![](/Materials/Animation%20&%20Visuals/enemyd_idle.gif)|
 
+*Dead Animation*
+
+This was a last minute addition, but to make the enemies' death to be realistic a simple death transition was established for the enemies. This was not needed for the player as dying leads straight to the game over screen.
+
+| **Death Asset** | **Death Animation** |
+| :------------: | :------------: | 
+| TO DO   | TO DO |
+
 ### Animation Set Up
 After each frame is drawn in Krita, a spritesheet is created for each animation state. Then in Unity, in the `Animation` window the animation clips for each direction was created. The animation for each character is done with 60 frames per second with each key frame at every 6 frames. This was chosen because it best matched the set movement speed for each character.
 
@@ -207,11 +218,24 @@ For each state, a motion field is created between within a $[-1,1]^2$ subspace. 
 | **Animator** | **Walking Blend Tree** |**Motion Field** | 
 | :------------: | :------------: | :------------: | 
 | <img src="./Materials/Animation & Visuals/Animator.png" width="50%">   | <img src="./Materials/Animation & Visuals/WalkingBlendTree.png" width="100%"> | <img src="./Materials/Animation & Visuals/MotionField.png" width="50%"> |
+
 #### Enemy Animator 
 The enemy's animator is much more simpler as since it is continuosly chasing the player there is no need for a idle tree. Thus it starts in an `Idle Down` state and when it begins to move it triggers the walking tree. The tree is set up exactly like in the player animator. A motion field was created to determine the proper animation. However, instead of checking for controller inputs to trigger states, in `EnemyAI.cs` it tracks the distance moved from a current update to the last update. Therefore if the distance moved is 0 (plus or minus a margin of error), the enemy's `IsWalking` is triggered to false and becomes in the `Idle Down` state.
 
+In terms of the death animation, an additional state was created. This is can be transitioned from any state as long as `IsDead` boolean value is set to true. Then when it is set to true, it goes to the dead animation and fixes its position their (via `IEnumerator`). Then after a set times, the object is destroyed.
+
 
 ### Weapons/Projectiles
+
+Since this game is a shooter game and cyberpunk themed, there was only one weapon chosen which was a gun. Another reason was that in order to create another weapon, it would require a whole new set of animations with the new weapon. Ultimately, it would be too time consuming given the short time line of this project. 
+
+| | |
+| :------------: | :------------: |
+| Original Designs | <img src="./Materials/Animation & Visuals/projectile.png" width="50%">| 
+| Final Designs | <img src="./Materials/Animation & Visuals/projectile2.png" width="19%" style="transform: rotate(90deg);"> | 
+
+In terms of the projectiles, originally I created more sophisticated design so that each enemy would have a distinct projectile. However, in turn the projectile were asymetric, thus we needed to program it facing the proper direction. Due to time constraint and priorities in completing other more foundational pieces to the game, that idea was scrapped. So the result was projectiles that were symmetric in nature making it look correct-facing in any direction.
+
 ## Game Logic
 
 **Document the game states and game data you managed and the design patterns you used to complete your task.**
@@ -243,6 +267,14 @@ The enemy's animator is much more simpler as since it is continuosly chasing the
 
 ## Game Feel and Polish
 
-### Map Tweaks
-### Player Interaction with Object
-### Player Movement
+### Player Improvements
+#### Contraints of 4 Directions and Input Lag
+#### Player Animation
+#### Shooting
+
+### Map Improvements
+#### Creating a Realistic Top Down Feel
+
+### Enemy Improvements
+#### Death Animation
+#### Impact Animation
