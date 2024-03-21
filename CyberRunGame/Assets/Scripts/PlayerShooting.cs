@@ -50,7 +50,7 @@ public class PlayerShoot : MonoBehaviour
             shootingSound.playOnAwake = false;
             // Set the volume to 50%
             // Becareful as the audio is very loud else 
-            shootingSound.volume = 0.005f;
+            shootingSound.volume = 0.1f;
             shootingSound.Play();
             Destroy(shootingSound, shootingSoundClip.length);
         }
