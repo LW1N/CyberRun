@@ -31,6 +31,7 @@ public class EnemyHealth : MonoBehaviour
         {
             MoneyManager.instance.AddMoney(10);
             Destroy(this.gameObject);
+            EnemySpawner spawner = FindObjectOfType<EnemySpawner>();
         }
     }
     IEnumerator ChangeColorTemporary(Color color)

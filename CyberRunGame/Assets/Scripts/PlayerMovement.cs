@@ -63,4 +63,12 @@ public class PlayerMovement : MonoBehaviour
     {
         playerSprint.StopSprint();
     }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy Projectile"))
+        {
+            // Destroy the bullet when it collides with an enemy
+            Destroy(other.gameObject);
+        }
+    }
 }
