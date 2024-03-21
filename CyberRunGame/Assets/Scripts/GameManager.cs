@@ -3,11 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject player;
     public GameObject shopPanel;
 
     public GameObject gameOverScreen;
 
     public PlayerHealth playerHealth;
+    public Vector3 playerStartPosition;
 
     // Placeholder for player's gold, CHANGE PLEASE 
     public int playerGold = 0; 
@@ -75,6 +77,8 @@ public class GameManager : MonoBehaviour
         {
             // Directly set the player's health to maxHealth for full restoration
             playerHealth.Heal(100);
+            // Respawn
+            player.transform.position = playerStartPosition;
         }
         else
         {
