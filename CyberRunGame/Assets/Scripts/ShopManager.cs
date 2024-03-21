@@ -32,7 +32,7 @@ public class ShopManager : MonoBehaviour
 
     void UpdateGoldText()
     {
-        goldText.text = "Gold: " + MoneyManager.instance.money.ToString();
+        goldText.text = "Money: " + MoneyManager.instance.money.ToString();
     }
 
     void BuyUpgrade(string upgradeType, int baseCost)
