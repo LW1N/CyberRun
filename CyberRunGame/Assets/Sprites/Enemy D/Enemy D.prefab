@@ -89,7 +89,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!61 &-6200912584612826937
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75e835a8a0570da41a6448937bec1c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 150
   enemyRenderer: {fileID: 8737895923968853002}
   damageColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   colorChangeDuration: 0.2
@@ -257,9 +257,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  projectilePrefab: {fileID: 1028262081231234349, guid: 64ee21a27a5c13e43afeb176bdd49e47, type: 3}
+  projectilePrefab: {fileID: 1146610460894212316, guid: 63e25a95de9b15240b46db9613ea1c9e, type: 3}
   projectileSpeed: 10
-  moveSpeed: 5
-  stopDistance: 10
-  shootingInterval: 2
+  moveSpeed: 8
+  stopDistance: 3
+  shootingInterval: 1.8
   interpolationSpeed: 5
+  marginOfError: 0.01

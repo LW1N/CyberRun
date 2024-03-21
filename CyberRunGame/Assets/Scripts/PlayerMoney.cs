@@ -24,7 +24,10 @@ public class MoneyManager : MonoBehaviour
     {
         money += amount;
         Debug.Log($"Money updated: ${money}");
-        if (moneyText != null) 
+        if (moneyText != null)
+        {
             moneyText.text = $"Money: ${money}";
+        } 
+            
     }
 }

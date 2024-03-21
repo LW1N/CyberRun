@@ -81,7 +81,7 @@ public class PlayerHealth : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         // Eventually replace the tag to "Enemy" 
-        if (collision.gameObject.CompareTag("Finish")) 
+        if (collision.gameObject.CompareTag("Enemy")) 
         {
             TakeDamage(50);
             Debug.Log("Collision with Enemy detected."); 
