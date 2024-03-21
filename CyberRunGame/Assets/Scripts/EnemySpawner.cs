@@ -61,9 +61,17 @@ public class EnemySpawner : MonoBehaviour
         // Eventually replace the tag to "Enemy" 
         if (collision.gameObject.CompareTag("Player")) 
         {
-            Debug.Log(spawning);
             spawning = true;
             enemyCount = 0;
+        }
+    }
+    
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        // Eventually replace the tag to "Enemy" 
+        if (collision.gameObject.CompareTag("Player")) 
+        {
+            spawning = false;
         }
     }
 }

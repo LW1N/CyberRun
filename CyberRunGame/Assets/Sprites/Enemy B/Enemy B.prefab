@@ -89,7 +89,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!61 &2968721796943651603
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -259,7 +259,8 @@ MonoBehaviour:
   player: {fileID: 0}
   projectilePrefab: {fileID: 6830577715004808014, guid: 025a24f84957d8f428c467a18e08a50c, type: 3}
   projectileSpeed: 10
-  moveSpeed: 4.93
-  stopDistance: 10
+  moveSpeed: 7
+  stopDistance: 2
   shootingInterval: 2
   interpolationSpeed: 5
+  marginOfError: 0.01
