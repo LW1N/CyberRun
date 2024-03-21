@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7633476679613894128}
   m_Layer: 0
   m_Name: enemyA Projectile
-  m_TagString: Untagged
+  m_TagString: Enemy Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1949140359
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 260422209, guid: 6350e384b4d09974a866f5ea73ff4f79, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

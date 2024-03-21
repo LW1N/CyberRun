@@ -13,6 +13,18 @@ public class PlayerShoot : MonoBehaviour
     private int piercingBulletsLevel = 0;
     private bool laserEnabled = false;
 
+    void Start()
+    {
+        if (firePoint == null)
+        {
+            Debug.LogError("Fire Point Transform has not been assigned in the PlayerShoot script.");
+        }
+        else if (!firePoint.gameObject.activeInHierarchy)
+        {
+            Debug.LogError("Fire Point GameObject is not active in the hierarchy.");
+        }
+    }
+    
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
@@ -103,7 +115,7 @@ public class PlayerShoot : MonoBehaviour
                 GameObject target = FindClosestTarget(position);
                 if (target != null)
                 {
-                    //beamScript.SetToFollow(target, speed);
+                    beamScript.SetToFollow(target, speed);
                 }
                 else
                 {

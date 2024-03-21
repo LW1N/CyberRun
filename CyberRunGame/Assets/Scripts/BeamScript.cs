@@ -3,57 +3,84 @@ using UnityEngine;
 public class BeamScript : MonoBehaviour
 {
     public int shooterType = 0; // 0 for player shooting, 1 for enemy
-    // Base damage of the beam
     public int damageAmount = 10; 
     public int pierceCount = 0;
+    private GameObject target;
+    private float speed;
+    private bool isFollowing = false;
+
+    // Call this method to make the beam follow a target
+    public void SetToFollow(GameObject newTarget, float newSpeed)
+    {
+        target = newTarget;
+        speed = newSpeed;
+        isFollowing = true;
+    }
+
+    void Update()
+    {
+        if (isFollowing && target != null)
+        {
+            // Calculate the direction from the beam to the target
+            Vector2 direction = (target.transform.position - transform.position).normalized;
+            // Apply the calculated direction and speed to the beam's Rigidbody2D
+            GetComponent<Rigidbody2D>().velocity = direction * speed;
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(shooterType == 0) 
+        if (shooterType == 0) 
         {
-            // Check if the beam collides with an enemy
-            if (other.gameObject.CompareTag("Enemy")) // Assuming the tag is "Enemy" for enemies
+            if (other.gameObject.CompareTag("Enemy")) 
             {
-                // Attempt to access the EnemyHealth script on the collided object
                 EnemyHealth enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
                 if (enemyHealth != null)
                 {
-                    // Apply damage
                     enemyHealth.TakeDamage(damageAmount);
-                    // Debug.Log(other.gameObject);
-                    // Destroy(other.gameObject);
                 }
 
-                // Manage pierce functionality
-                // pierceCount--;
-                // if (pierceCount < 0)
-                // {
-                //     Destroy(gameObject); 
-                // }
+                if (isFollowing && other.gameObject == target)
+                {
+                    // Target hit, stop following
+                    isFollowing = false;
+                }
+
+                if (pierceCount <= 0)
+                {
+                    Destroy(gameObject); // No pierce left, destroy the beam
+                }
+                else
+                {
+                    pierceCount--; // Reduce pierce count
+                }
             }
         }
-
         else
         {
-            // Check if the beam collides with player
-            if (other.gameObject.CompareTag("Player")) // Assuming the tag is "Enemy" for enemies
+            if (other.gameObject.CompareTag("Player")) 
             {
-                // Attempt to access the EnemyHealth script on the collided object
                 PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
                 if (playerHealth != null)
                 {
-                    // Apply damage
                     playerHealth.TakeDamage(damageAmount);
                 }
 
-                // Manage pierce functionality
-                // pierceCount--;
-                // if (pierceCount < 0)
-                // {
-                //     Destroy(gameObject); 
-                // }
+                if (isFollowing && other.gameObject == target)
+                {
+                    // Target hit, stop following
+                    isFollowing = false;
+                }
+
+                if (pierceCount <= 0)
+                {
+                    Destroy(gameObject); // No pierce left, destroy the beam
+                }
+                else
+                {
+                    pierceCount--; // Reduce pierce count
+                }
             }
         }
-        
     }
 }

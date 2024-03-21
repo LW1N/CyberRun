@@ -102,4 +102,12 @@ public class EnemyAI : MonoBehaviour
         // Clean gameobject after certain time
         Destroy(beam, lifeSpan);
     }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player Projectile"))
+        {
+            // Destroy the bullet when it collides with an enemy
+            Destroy(other.gameObject);
+        }
+    }
 }
