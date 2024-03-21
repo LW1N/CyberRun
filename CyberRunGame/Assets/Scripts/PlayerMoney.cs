@@ -26,7 +26,7 @@ public class MoneyManager : MonoBehaviour
         Debug.Log($"Money updated: ${money}");
         if (moneyText != null)
         {
-            moneyText.text = $"Money: ${money}";
+            moneyText.text = $"Money:\n ${money}";
         } 
             
     }

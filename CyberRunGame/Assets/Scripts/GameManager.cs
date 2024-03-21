@@ -4,9 +4,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public GameObject shopPanel;
-
+    public GameObject tutorialScreen;
     public GameObject gameOverScreen;
-
+    public GameObject staminaBar;
+    public GameObject healthBar;
     public PlayerHealth playerHealth;
     public int playerGold = 0;
     public static GameManager instance;
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+            ShowTutorialScreen(true);
         }
         else
         {
@@ -35,6 +37,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ShowTutorialScreen(bool show)
+    {
+        healthBar.SetActive(false);
+        tutorialScreen.SetActive(show);
+        // Pause the game
+        if (show) Time.timeScale = 0f; 
+        // Resume the game
+        else Time.timeScale = 1f;
+    }
     public void ShowGameOverScreen(bool show)
     {
         gameOverScreen.SetActive(show);
@@ -90,18 +101,34 @@ public class GameManager : MonoBehaviour
         // Hide game over screen and shop panel
         ShowGameOverScreen(false);
         if (shopPanel != null) shopPanel.SetActive(false);
+        
+        tutorialScreen.SetActive(false);
+    
+        staminaBar.SetActive(true);
+        healthBar.SetActive(true);
 
         // Ensure the game is no longer paused
         Time.timeScale = 1f;
+
+        // Check if the player's health component is assigned
+        if (playerHealth != null)
+        {
+            // Directly set the player's health to maxHealth for full restoration
+            playerHealth.Heal(100);
+        }
+        else
+        {
+            Debug.LogError("PlayerHealth component not set in GameManager.");
+        }
     }
 
     public void ExitGame()
     {
-#if UNITY_EDITOR
+        #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-#else
+        #else
         Application.Quit();
-#endif
+        #endif
     }
 
 

@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartButton : MonoBehaviour
+public class ButtonManager : MonoBehaviour
 {
-
+    public void LoadTitle()
+    {
+        SceneManager.LoadScene("StartScreen");
+    }
     public void LoadIntro()
     {
         SceneManager.LoadScene("BackgroundStoryScene");
