@@ -65,10 +65,8 @@ public class EnemySpawner : MonoBehaviour
             enemyCount = 0;
         }
     }
-    
     void OnTriggerExit2D(Collider2D collision)
     {
-        // Eventually replace the tag to "Enemy" 
         if (collision.gameObject.CompareTag("Player")) 
         {
             spawning = false;

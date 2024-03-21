@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75e835a8a0570da41a6448937bec1c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 60
   enemyRenderer: {fileID: 734572859531792893}
   damageColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   colorChangeDuration: 0.2
@@ -259,8 +259,8 @@ MonoBehaviour:
   player: {fileID: 0}
   projectilePrefab: {fileID: 6830577715004808014, guid: 025a24f84957d8f428c467a18e08a50c, type: 3}
   projectileSpeed: 10
-  moveSpeed: 7
-  stopDistance: 2
+  moveSpeed: 4.9
+  stopDistance: 3.5
   shootingInterval: 2
   interpolationSpeed: 5
   marginOfError: 0.01

@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shooterType: 1
-  damageAmount: 10
+  damageAmount: 5
   pierceCount: 0
 --- !u!58 &-5966150947078705438
 CircleCollider2D:
