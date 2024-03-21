@@ -7,15 +7,15 @@ public class ButtonManager : MonoBehaviour
 {
     public void LoadTitle()
     {
-        SceneManager.LoadScene(2,LoadSceneMode.Single);
+        SceneManager.LoadScene(0,LoadSceneMode.Single);
     }
     public void LoadIntro()
     {
-        SceneManager.LoadScene(3,LoadSceneMode.Single);
+        SceneManager.LoadScene(1,LoadSceneMode.Single);
     }
     public void LoadFirstScene()
     {
-        SceneManager.LoadScene(0,LoadSceneMode.Single);
+        SceneManager.LoadScene(2,LoadSceneMode.Single);
     }
 
     public void ExitGame()

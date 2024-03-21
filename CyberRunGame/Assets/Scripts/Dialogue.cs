@@ -63,7 +63,7 @@ public class Dialogue : MonoBehaviour
         {
             gameObject.SetActive(false);
             // Load the specified scene when dialogue finishes
-            SceneManager.LoadScene(0,LoadSceneMode.Single);
+            SceneManager.LoadScene(2,LoadSceneMode.Single);
         }
     }
 }
