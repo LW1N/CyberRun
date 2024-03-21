@@ -4,14 +4,16 @@ using System.Collections;
 public class PlayerShoot : MonoBehaviour
 {
     public GameObject beamPrefab;
-    public Transform firePoint; 
-    public float beamSpeed = 20f; 
+    public Transform firePoint;
+    public float beamSpeed = 20f;
     private int moreBulletsLevel = 0;
     private int fasterBulletsLevel = 0;
     private int followingBulletsLevel = 0;
     private int strongerBulletsLevel = 0;
     private int piercingBulletsLevel = 0;
     private bool laserEnabled = false;
+    public AudioClip shootingSoundClip;
+    public PlayerHealth playerHealth;
 
     void Start()
     {
@@ -24,10 +26,9 @@ public class PlayerShoot : MonoBehaviour
             Debug.LogError("Fire Point GameObject is not active in the hierarchy.");
         }
     }
-    
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && playerHealth.currentHealth > 0 && !GameManager.IsShopOpen)
         {
             Shoot();
         }
@@ -42,6 +43,21 @@ public class PlayerShoot : MonoBehaviour
         {
             Vector3 positionOffset = new Vector3((i - (totalBullets - 1) / 2.0f) * 0.5f, 0, 0);
             InstantiateBeam(firePoint.position + positionOffset, direction, beamSpeed + (fasterBulletsLevel * 5));
+        }
+        if (shootingSoundClip != null)
+        {
+            AudioSource shootingSound = gameObject.AddComponent<AudioSource>();
+            shootingSound.clip = shootingSoundClip;
+            shootingSound.playOnAwake = false;
+            // Set the volume to 50%
+            // Becareful as the audio is very loud else 
+            shootingSound.volume = 0.005f;
+            shootingSound.Play();
+            Destroy(shootingSound, shootingSoundClip.length);
+        }
+        else
+        {
+            Debug.LogWarning("ShootingSoundClip is not assigned in the Inspector.");
         }
     }
 
