@@ -13,18 +13,24 @@
 
 ## Gameplay Explanation
 
-**In this section, explain how the game should be played. Treat this as a manual within a game. Explaining the button mappings and the most optimal gameplay strategy is encouraged.**
 **Input**
-*W* - Moves the Player up
-*A* - Moves the Player to the left
-*S* - Moves the Player down
-*D* - Moves the Player to the right
+`W` - Moves the Player up
+`A` - Moves the Player to the left
+`S` - Moves the Player down
+`D` - Moves the Player to the right
 
-*Left Mouse Click* - Fire Player weapon
+`Mouse Cursor` - Aim Player weapon
+`Left Mouse Click` - Fire Player weapon & select weapon upgrades
 
-**Gameplay Strategy**
+**The Objective**
+The player must outlast the waves of different enemies and kill enough of them so that when they make their way to the *blue boat* on the docks at the bottom of the map, they have enough money to survive. If the player is not able to withstand the onslaught, upon death an upgrade shop becomes available for them to upgrade their only weapon and try again.
+
+**Tips**
 - Keep moving so that it is hard for the enemies to hit you
+- Don't be scared of spending money on upgrades to make it to the end
 - Keep firing at enemies to collect money and prevent too many from spawning
+- Use your sprint at key moments in order to get out of danger and reposition
+- Be aware of slower and faster enemies that may catch you off guard
 
 # Main Roles
 
@@ -40,13 +46,15 @@ Here is an example:
 You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
 
 ## Producer - Lucas Nguyen
-*Project Timeline* - Here is a Gantt chart that depicts the timeline in which our project was completed.
+*Project Timeline* - Here is a [Gantt chart]() that depicts the timeline in which our project was completed.
 
 *Group Meeting/Scheduling* - Because of all of our heavy workload, we decided on Discord as our main source of communication. There we were able to communicate in a very timely manner at any given point in the day no matter location constraints or scheduling conflicts. During project development the group discord remained active every day with questions being answered within a few minutes. Though we would maintain active communication most days, every week we would meet over a voice call and discuss what was currently in progress as well as what we would need to complete/begin working on moving forward. In the case that a team member became inactive or was taking additional time with a task, I would reach out to make sure that everything was okay and provide any needed assistance with the task.
 
 *Project Documents* - I took full responsibility of the project documents(such as the Initial Plan, Gantt Chart, Progress Reports, & Project Document). In order to take load off of the other members and free up time for them to tackle more of the heavy programming related tasks, I made sure to be the main organizer/coordinator towards the documentation of the project. When approaching each document I would take note of each group members' input and elaborate further in order to fulfill the requirements of the document. I worked closely with each member to ensure that everyone's input would make its way on to every document.
 
 *Repository Management* - Most of the time we were able to complete tasks without having issues merging back on to the main branch. This was due to the fact that a lot of our tasks were able to be further broken down in a way that pushes and commits could be completed quite quickly one after the other. This resulted in very few conflicts because of very little overlapping work. Though, at the few times that we would run into a merge conflict, I was responsible for stepping in to work with both sides of the conflict and manually resolve it myself.
+
+*Minor General Development* - As the producer I was not in charge of any of the major gameplay mechanics or functions. But due to time constraints I was needed to develop and tweak certain minor features such as enemy and projectile prefabs, enemy spawning, projectile instantiation, and enemy strength.
 
 ## User Interface and Input
 
