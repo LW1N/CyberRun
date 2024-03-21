@@ -261,5 +261,5 @@ MonoBehaviour:
   projectileSpeed: 10
   moveSpeed: 5
   stopDistance: 5
-  shootingInterval: 2
+  shootingInterval: 1.5
   interpolationSpeed: 5

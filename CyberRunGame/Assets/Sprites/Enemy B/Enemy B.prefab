@@ -259,7 +259,7 @@ MonoBehaviour:
   player: {fileID: 0}
   projectilePrefab: {fileID: 6830577715004808014, guid: 025a24f84957d8f428c467a18e08a50c, type: 3}
   projectileSpeed: 10
-  moveSpeed: 4.93
-  stopDistance: 10
+  moveSpeed: 4.9
+  stopDistance: 3.5
   shootingInterval: 2
   interpolationSpeed: 5

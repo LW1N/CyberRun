@@ -162,5 +162,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shooterType: 1
-  damageAmount: 10
+  damageAmount: 5
   pierceCount: 0
