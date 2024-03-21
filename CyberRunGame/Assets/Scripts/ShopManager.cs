@@ -11,9 +11,17 @@ public class ShopManager : MonoBehaviour
     public Button strongerBulletsButton;
     public Button piercingBulletsButton;
     public Button laserButton;
-
+    // Audio 
+    public AudioClip purchaseSoundClip;
+    private AudioSource audioSource;
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
         UpdateGoldText();
         moreBulletsButton.onClick.AddListener(() => BuyUpgrade("MoreBullets", 50));
         fasterBulletsButton.onClick.AddListener(() => BuyUpgrade("FasterBullets", 30));
@@ -37,6 +45,11 @@ public class ShopManager : MonoBehaviour
             UpdateGoldText();
             playerShootScript.Upgrade(upgradeType);
             DebugUpgradeStatus(upgradeType);
+            // Play the purchase sound clip
+            if (purchaseSoundClip != null && audioSource != null)
+            {
+                audioSource.PlayOneShot(purchaseSoundClip);
+            }
         }
         else
         {

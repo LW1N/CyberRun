@@ -1,6 +1,6 @@
-using System.Collections; 
+using System.Collections;
 using UnityEngine;
-using UnityEngine.UI; // Include this for UI updates
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -11,21 +11,31 @@ public class PlayerHealth : MonoBehaviour
     public Color damageColor = Color.red; // Color to indicate damage
     public float colorChangeDuration = 0.2f;
 
-    private Color originalColor;
+    public AudioClip hitSoundClip; // Sound effect for when the player gets hit
+    private AudioSource audioSource; // Reference to the AudioSource component
 
+    private Color originalColor;
 
     void Start()
     {
         currentHealth = maxHealth;
-        if (healthSlider == null) {
+        if (healthSlider == null)
+        {
             Debug.Log("No healthSlider object");
         }
-
-        else{
+        else
+        {
             healthSlider.maxValue = maxHealth;
             // Update the UI at the start
-            UpdateHealthUI(); 
-            Debug.Log("Player Health system initialized."); 
+            UpdateHealthUI();
+            Debug.Log("Player Health system initialized.");
+        }
+
+        // Get the AudioSource component from the current GameObject or add one if not present
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
         }
     }
 
@@ -33,9 +43,15 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth -= damage;
         // Ensure health doesn't go below 0 or above max
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); 
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         Debug.Log($"Player took {damage} damage. Current Health: {currentHealth}/{maxHealth}");
-        UpdateHealthUI(); 
+        UpdateHealthUI();
+
+        // Play hit sound effect if available
+        if (hitSoundClip != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(hitSoundClip);
+        }
 
         if (playerRenderer != null)
         {
@@ -48,8 +64,10 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("Player Died");
             GameManager.instance.ShowGameOverScreen(true);
         }
-        
+
     }
+    
+    // Coroutine to temporarily change the player's color
     IEnumerator ChangeColorTemporary(Color color)
     {
         playerRenderer.material.color = color;
@@ -69,22 +87,22 @@ public class PlayerHealth : MonoBehaviour
     {
         if (healthSlider != null)
         {
-            Debug.Log($"Updating UI with Current Health: {currentHealth}"); 
+            Debug.Log($"Updating UI with Current Health: {currentHealth}");
             healthSlider.value = currentHealth;
         }
         else
         {
-            Debug.Log("Health Text component not assigned!"); 
+            Debug.Log("Health Text component not assigned!");
         }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         // Eventually replace the tag to "Enemy" 
-        if (collision.gameObject.CompareTag("Enemy")) 
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             TakeDamage(50);
-            Debug.Log("Collision with Enemy detected."); 
+            Debug.Log("Collision with Enemy detected.");
         }
     }
 }
