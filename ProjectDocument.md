@@ -120,7 +120,7 @@ This was managed by [sliders](/Assets/Scripts/PlayerHealthbar.cs)
 
 ## Animation and Visuals - Timothy Shen
 ### Asset Creation
-Given that the game's theme is Cyberpunk, the style guide and art will mostly reflect that idea. Thus there were two prevailing themes in the art: (1) **dark colors** or (2) **neon/very bright colors** as typically Cyberpunk cities are set at night/dark with neon lights to exemplify the "technologies." 
+Given that the game's theme is Cyberpunk, the style guide and art will mostly reflect that idea. Thus there were two prevailing themes in the art: (1) **dark colors** or (2) **neon/very bright colors**. This is because typically, Cyberpunk cities are set at night/dark with neon lights to exemplify the "technologies." 
 
 All assets, unless explicity specified otherwise, is created by me through the use of the open-source digit art software, [Krita](https://krita.org/en/). All animations of players and enemies are done in 64 by 64 pixels to allow for slightly more detail, while other assets are done in 32 by 32 pixels as they are in the background. 
 ### The Map
@@ -130,13 +130,13 @@ The first thing to complete was creating a concept map to help aid and guide the
 | Initial Map       | <img src="./Materials/Animation & Visuals/map_design_layout.png" width="40%"> | 
 | Final Map         | <img src="./Materials/Animation & Visuals/map_design_final_layout.png" width="40%"> |
 
-The initial map showcases a city with four zones in which the player will progress through with the end goal of escaping the city at the boat deck. The final map was decided on to allow for more open space for fighting in Zone 2 and a much more challenging Zone 3 to progress through.  
+The initial map showcases a city with four zones in which the player will progress through with the end goal of escaping the city at the boat deck. The final map was decided on to allow for more open space for fighting in Zone B and a much more challenging Zone C to progress through.  
 
 Implementing the map in the game environment, I used a rectangular grid and used tile maps to create the map. Tile map was chosen because it fit the aesthetic of a 2D top-down pixel game and allowed for the most flexibility in design.
 
 **Visual Guide for Tile Map**
  - Each tile must be **32 by 32** pixels. 
- - For Buildings (except Zone 3):
+ - For Buildings (except Zone C):
    - The general color scheme must be "dull" and "dark" allowing for neon signs to contrast it.
    - Buidings should be in similar syle across each zone, as it is a city.
  - For objects:
@@ -153,27 +153,27 @@ Note: The vehicles are not drawn by me. They are sourced from a free-to-use asse
 |  <img src="./Materials/Animation & Visuals/ZoneA.png" width="80%"> | 
 #### Zone B - Plaza and Harbor Street
 
-The second zone boast the largest zone with a plaza area and a large street. The large area allows for the most practice and skill progression before entering the harder zones. The player will first enter the plaza in which it is bordered by a building and cyberpunk themed fences (basically neon gates). There is only one exit to zone 3 which forces you to traverse to other end of the plaza. Vehicles and dirt boxes are also scattered throughout the map as obstacles. Once you exit the plaza you enter the street in which you traverse all the way to end to enter the park (Zone 3).
+The second zone boast the largest zone with a plaza area and a large street. The large area allows for the most practice and skill progression before entering the harder zones. The player will first enter the plaza in which it is bordered by a building and cyberpunk themed fences (basically neon gates). There is only one exit from the plaza to the street. This forces you to traverse to other end of the plaza. Vehicles and dirt boxes are also scattered throughout the map as obstacles. Once you exit the plaza you enter the street in which you traverse all the way to end to enter the park (Zone C).
 
 | <sub>Zone B: Plaza and Harbor Street<sub>              |
 |  :------------: |
 |  <img src="./Materials/Animation & Visuals/ZoneB.png" width="80%"> | 
 #### Zone C - Park
-The third zone is the most technical challenging and unique zone. It is the smallest zone with the most obstacles. The building here is a detachment from the theme because I wanted this zone to be distinctively different given it's the most unique and challenging. So, the building designs were choen to fit with the aethestic of a park. The center most part of the zone has the least space. 
+The third zone is the most technical challenging and unique zone. It is the smallest zone with the most obstacles. The building here is a detachment from the theme because I wanted this zone to be distinctively different given it's the most unique and challenging. So, the building designs were choSen to fit with the aethestic of a park. The center most part of the zone has the least space, however, no enemies are spawned there allowing at times a place to break while in battle.
 
-Note: The buildings in this zone only are not drawn by me. They are sourced from a free-to-use assets package by Szadi art, [Houses Pack](https://szadiart.itch.io/houses-pack). The link to the [public license](/Materials/Animation%20&%20Visuals/houses_public-license.txt).
+Note: The buildings in this zone **only** are not drawn by me. They are sourced from a free-to-use assets package by Szadi art, [Houses Pack](https://szadiart.itch.io/houses-pack). The link to the [public license](/Materials/Animation%20&%20Visuals/houses_public-license.txt).
 | <sub>Zone C:  Park<sub>              |
 |  :------------: |
 |  <img src="./Materials/Animation & Visuals/ZoneC.png" width="80%"> | 
 
 *Technical Aspects*
 
-First once they enter, the parked van immediately moves to trap them in zone (the exit is blocked initially too). This is done by a simple trigger Box Collider 2D that initiates the script function `OnTriggerEnter2d` to move the van straight downward until it blocks entrance. An `Enumerator` method was employed to allow the van to move to target location in one single call. 
+First once they enter, the parked van immediately moves to trap them in zone (the exit is blocked initially too). This is done by a simple trigger Box Collider 2D that initiates the script function [`OnTriggerEnter2d`](https://github.com/LW1N/CyberRun/blob/de1f950e47d038b182806a519849c77d710d8684/CyberRunGame/Assets/Scripts/CarController.cs#L13) to move the van straight downward until it blocks the entrance. An [`IEnumerator`](https://github.com/LW1N/CyberRun/blob/de1f950e47d038b182806a519849c77d710d8684/CyberRunGame/Assets/Scripts/CarController.cs#L31) method was employed to allow the van to move to target location in one single call. 
 | <sub>Entrance Trigger BoxCollider2D<sub>| <sub>Van Moving Mechanic<sub> |<sub>Exit Trigger BoxCollider2D<sub>
 | :------------: | :------------: | :------------: |
 | <img src="./Materials/Animation & Visuals/Zone3EntranceCollider.png" width="50%">      | ![](/Materials/Animation%20&%20Visuals/ZoneEnterMechanic.gif) | <img src="./Materials/Animation & Visuals/Zone3ExitCollider.png" width="60%"> |
 
-Now onto the exit. The only way for the van (the exit one) to move out of the way if it get's "scared". In other words, if you kill enough of the enemies, the van will leave. The function is created again by Box Collider 2D that checks if you killed enough enemies. If so, same script idea as above is used. 
+Now onto the exit. The only way for the van (the exit one) to move out of the way if it get's "scared". In other words, if you kill enough of the enemies, the van will leave. The function is created again by Box Collider 2D that checks [if you killed enough enemies](https://github.com/LW1N/CyberRun/blob/de1f950e47d038b182806a519849c77d710d8684/CyberRunGame/Assets/Scripts/CarController.cs#L20). If so, same script idea as above is used. 
 #### Zone D - Street to Boat Deck
 
 The final zone is a little less challenging in terms of map design. You will traverse from one end to other end of the zone where the boat deck is. The player must choose to leave on the "escape boat" (it is the boat that has the most similar coloring scheme as the player's logo).
@@ -192,9 +192,9 @@ With the buildings and other obstacles included in the map, the following tilema
 Some colliders were adjusted to create a more realistic interaction with these objects (see [Game Feel](#game-feel-and-polish)).
 
 #### Sorting System
-With the multiple layers in the map, as sorting system was established: **(1) background** and **(2) foreground**. Any layer that does not have interactions (streets, ground, water) they were in background layer. Then the foreground are all the objects that have interactions with the player(cars, player, fences, etc.). 
+With the multiple layers in the map, as sorting system was established: **(1) background** and **(2) foreground**. Any layer that does not have interactions (streets, ground, water) they were in background layer. Then the foreground are all the objects that have interactions with the characters (cars, player, fences, etc.). 
 
-Then (discussed more intently in [Game Feel](#game-feel-and-polish)) the sorting axis was by the y-axis. This is why only one layer for the foreground objects was chosen, as the further sorting is done by the y-axis location of the items. This also restricted the use of `Order Layers` as all had to be at the same order for the y-axis sorting to function properly.
+Then (discussed more intently in [Game Feel](#creating-a-realistic-top-down-feel)) the sorting axis was by the y-axis. This is why only one layer for the foreground objects was chosen, as the further sorting is done by the y-axis location of the items. This also restricted the use of `Order Layers` as all had to be at the same order for the y-axis sorting to function properly.
 
 ### Visual Guide for Characters
 
@@ -223,7 +223,7 @@ The gang will progressively get more "cyperbunk". So the first gang is just a si
 
 *Gang B*
 
-The next enemy similarly is simple character. The enemy gang is characterized by a pink buzz cut and a neon purple gun.
+The next enemy similarly is a simple character. The enemy gang is characterized by a pink buzz cut and a neon purple gun.
 
 | **Enemy B Up** | **Enemy B Down** |**Enemy B Left** | **Enemey B Right** | **Enemey B Idle**
 | :------------: | :------------: | :------------: | :------------: | :------------: |
@@ -231,7 +231,7 @@ The next enemy similarly is simple character. The enemy gang is characterized by
 
 *Gang C*
 
-Given this is for Zone C, the gang now well look more technologically advanced to match the higher skilled gameplay. Thus this gang is characterized by a cyperbunk themed helmet and holding a neon bright green gun. 
+Given this is for Zone C, the gang now will look more technologically advanced to match the higher skilled gameplay. Thus this gang is characterized by a cyperbunk themed helmet and holding a neon bright green gun. 
 
 | **Enemy C Up** | **Enemy C Down** |**Enemy C Left** | **Enemey C Right** | **Enemey C Idle**
 | :------------: | :------------: | :------------: | :------------: | :------------: |
@@ -247,31 +247,31 @@ Finally gang D, similar to gang C will wear a cyberpunk themed helmet. This time
 
 *Dead Animation*
 
-This was a last minute addition, but to make the enemies' death to be realistic a simple death transition was established for the enemies. This was not needed for the player as dying leads straight to the game over screen.
+This was a last minute addition, but to make the enemies' death more realistic a simple death transition was established for the enemies. This was not needed for the player as dying leads straight to the game over screen.
 
 | **Death Asset** | **Death Animation** |
 | :------------: | :------------: | 
-| TO DO   | TO DO |
+| <img src="./Materials/Animation & Visuals/blood.png" width="300%">  | ![](/Materials/Animation%20&%20Visuals/Death%20Animation.gif)|
 
 ### Animation Set Up
-After each frame is drawn in Krita, a spritesheet is created for each animation state. Then in Unity, in the `Animation` window the animation clips for each direction was created. The animation for each character is done with 60 frames per second with each key frame at every 6 frames. This was chosen because it best matched the set movement speed for each character.
+After each frame is drawn in Krita, a spritesheet is created for each animation state. Then in Unity, in the `Animation` window, the animation clips for each direction was created. The animation for each character is done with 60 frames per second with each key frame at every 6 frames. This was chosen because it best matched the set movement speed for each character.
 
 
 Both the players' and enemies' animation controllers were set up under a similar structure: a blend tree.
 
 #### Player Animator
-The animator for the player has two trees: idle and walking. For each tree, the player has four directions it can go (up, down, right, left). The blend type set then is `2D Simple Directional`. Within the `PlayerMovement.cs`, if the player moves (ie W,A,S,D is pressed) it sets `IsWalking` to true trigger the walking state. If the player is not moving, it is in the idle state by setting `IsWalking` to false.
+The animator for the player has two trees: idle and walking. For each tree, the player has four directions it can go (up, down, right, left). The blend type set then is `2D Simple Directional`. Within the `PlayerMovement.cs`, if the player moves (ie W,A,S,D is pressed) it sets `IsWalking` to true, triggering the walking state. If the player is not moving, it is in the idle state by setting `IsWalking` to false.
 
-For each state, a motion field is created between within a $[-1,1]^2$ subspace. Thus it finds the normalized distance and based on where it is in the motion field the proper animation plays.
+For each state, a motion field is created between within a $[-1,1]^2$ subspace. Thus it finds the [normalized input axis](https://github.com/LW1N/CyberRun/blob/de1f950e47d038b182806a519849c77d710d8684/CyberRunGame/Assets/Scripts/PlayerMovement.cs#L57), then the proper animation plays.
 
 | **Animator** | **Walking Blend Tree** |**Motion Field** | 
 | :------------: | :------------: | :------------: | 
 | <img src="./Materials/Animation & Visuals/Animator.png" width="50%">   | <img src="./Materials/Animation & Visuals/WalkingBlendTree.png" width="100%"> | <img src="./Materials/Animation & Visuals/MotionField.png" width="50%"> |
 
 #### Enemy Animator 
-The enemy's animator is much more simpler as since it is continuosly chasing the player there is no need for a idle tree. Thus it starts in an `Idle Down` state and when it begins to move it triggers the walking tree. The tree is set up exactly like in the player animator. A motion field was created to determine the proper animation. However, instead of checking for controller inputs to trigger states, in `EnemyAI.cs` it tracks the distance moved from a current update to the last update. Therefore if the distance moved is 0 (plus or minus a margin of error), the enemy's `IsWalking` is triggered to false and becomes in the `Idle Down` state.
+The enemy's animator is much more simpler as since it is continuosly chasing the player there is no need for a idle tree. Thus it starts in an `Idle Down` state and when it begins to move it triggers the walking tree. The tree is set up exactly like in the player animator. A motion field was created to determine the proper animation. However, instead of checking for controller inputs to trigger states, in [`EnemyAI.cs`](https://github.com/LW1N/CyberRun/blob/main/CyberRunGame/Assets/Scripts/EnemyAI.cs) it tracks the distance moved from a current update to the last update. Therefore if the distance moved is 0 (plus or minus a margin of error), the enemy's `IsWalking` is triggered to false and becomes in the `Idle Down` state.
 
-In terms of the death animation, an additional state was created. This is can be transitioned from any state as long as `IsDead` boolean value is set to true. Then when it is set to true, it goes to the dead animation and fixes its position their (via `IEnumerator`). Then after a set times, the object is destroyed.
+In terms of the death animation, an additional state was created. This is can be transitioned from any state as long as `IsDead` boolean value is set to true. Then when it is set to true, it goes to the [dead animation and fixes its position their (via `IEnumerator`)](https://github.com/LW1N/CyberRun/blob/de1f950e47d038b182806a519849c77d710d8684/CyberRunGame/Assets/Scripts/EnemyHP.cs#L43). Then after a set time, the object is destroyed.
 
 
 ### Weapons/Projectiles
@@ -283,8 +283,19 @@ Since this game is a shooter game and cyberpunk themed, there was only one weapo
 | Original Designs | <img src="./Materials/Animation & Visuals/projectile.png" width="50%">| 
 | Final Designs | <img src="./Materials/Animation & Visuals/projectile2.png" width="19%" style="transform: rotate(90deg);"> | 
 
-In terms of the projectiles, originally I created more sophisticated design so that each enemy would have a distinct projectile. However, in turn the projectile were asymetric, thus we needed to program it facing the proper direction. Due to time constraint and priorities in completing other more foundational pieces to the game, that idea was scrapped. So the result was projectiles that were symmetric in nature making it look correct-facing in any direction.
+In terms of the projectiles, originally I created a more sophisticated design so that each enemy would have a distinct projectile. However, in turn the projectiles were asymetric, thus we needed to program it facing the proper direction. Due to the time constraint and priorities in completing other more foundational pieces to the game, that idea was scrapped. So the result was projectiles that were symmetric in nature making it look correct-facing in any direction.
 
+### End Scene
+
+When the player enters the boat deck, there is a boat matching the player's gun color scheme. When the player enters near it, it will [trigger a `Collider2D`](https://github.com/LW1N/CyberRun/blob/de1f950e47d038b182806a519849c77d710d8684/CyberRunGame/Assets/Scripts/Endgame.cs#L17) in which it calculates the money the player has. If the player has enough money to ride the boat, the *end scene animation* is triggered. If not, a pop up will show up saying "Not Enough $$". 
+
+NOTE: The end scene animation in the game is paired with a end credit UI made by Henry (See [UI](#user-interface-and-input---henry-duong)).
+
+I will note the quality of the animation is more compressed in game as the animation was created in Krita. It rendered in lower resolutions given it was done in pixel resolutions.
+
+| Pop Up when Player Has No Money | End Scene Animation|
+| :------------: | :------------: |
+| ![](/Materials/Animation%20&%20Visuals/End_Trigger.gif) | ![](/Materials/Animation%20&%20Visuals/endscene.gif) | 
 ## Game Logic
 
 **Document the game states and game data you managed and the design patterns you used to complete your task.**
@@ -334,13 +345,60 @@ In terms of the projectiles, originally I created more sophisticated design so t
 ## Game Feel and Polish
 
 ### Player Improvements
-#### Contraints of 4 Directions and Input Lag
 #### Player Animation
+The player animation was created to best match the movement speed. Therefore the frames (created in `Animation` window) was at 6 key frames apart. Now besides the leg movements for each direction, the player's head would be lowered a pixel every other pixel. This would create a bobbling effect to further make it look like the player is moving fast (See [Player in Animation & Visuals](#the-player)).
+
 #### Shooting
 
+The chosen shooting logic is so that when the player shoots in the direction where the `Mouse Button` presses. This would create an issue, if the player is not facing that direction. Originally the idea was to restrict the shooting so that it would shoot in the direction the player was facing. However, we quickly realized not only the gameplay would too hard but it would require reworking our weapon upgrades system. Therefore, a logic was created so that wherever the mouse press location is the player would briefly face that direction when it shoots. This is done by getting the normalized distance between the `Mouse Press` (via `Camera.main.ScreenToWorldPoint(Input.mousePosition)`) and `Player`. Then the animator's `X` and `Y` would be set to the corresponding distance. This matches with the system created in the player animator.
+
+| Changing Direction Based on Mouse Shooting | When Mouse and Movement is Opposite |
+| :------------: | :------------: |
+| ![](/Materials/Animation%20&%20Visuals/GameFeel_Shooting.gif) | ![](/Materials/Animation%20&%20Visuals/GameFeel_PlayerShooting2.gif) | 
+
+This is in done in `Update()` to reduce the input lag, a departure from the movement system which is done in `FixedUpdate()`. Now because of this, an issue occurs where the player would face the direction in the mouse during `Update()` then instantly return the direction set in `FixedUpdate()`. Thus the player would just jitter making it impossible to see what happened. So to remedy this, when a mouse button is pressed, the `FixedUpdate()` would not be called for a couple frames. Although it's still very rapid change, but now you can visual see it switch for a moment (right image above).
+
 ### Map Improvements
+
+In terms of map improvements, the biggest emphasis was creating a top-down two dimensional feel. Given this game is not straight from the top view, there needed to have some three-dimensional feel. Furthermore, given all the sprites, map design, and objects all are drawn with three-dimensions, it's interaction had to reflect that.
+
 #### Creating a Realistic Top Down Feel
 
+To create this top-down feel, I edited the colliders boxes for certain sprites. For instance, for any character the `Collider 2D` box was at the feet of the characters. This is because when you interact with things on the ground the feet dictates that interaction. 
+| Player vs Gate | Player vs Vehicle |
+| :------------: | :------------: |
+| ![](/Materials/Animation%20&%20Visuals/GameFeel_Collider.gif) | ![](/Materials/Animation%20&%20Visuals/GameFeel_Collider2.gif) | 
+
+In turn, for objects like fences and gates there needed to add a bit of three dimensions. When the characters is infront the fence and before the colliders hit, it's character body has to be on top of it. Similar when the characters are behind it, it's body has to be behind the gate before they collide. To do this the `Collider 2D` was manually created in the `Sprite Editor` under `Custom Physics Shapes`. This allowed it to create unique colliders for each of sprite type at once. Given that the sorting order is determined by the `y-axis`, the desired feel was created.
+| Creation in Sprite Eitor (Custom Physics Shape) | Custom Colliders |
+| :------------: | :------------: |
+|<img src="./Materials/Animation & Visuals/SpriteCollider.png" width="50%"> |<img src="./Materials/Animation & Visuals/SpriteCollider2.png" width="85%"> |
+
+#### Spawning Improvements
+
+The logic of the enemy spawns is so that they are spawned at the edge of the camera. However, one apparent issue is when the enemy is spawns inside `Colliders` like buildings and cars. To remedy this the `EnemySpawner.cs` was modified so that it spawns in a trigger area. This is separated in zones. Trigger zones were created to avoid `Collider` objects, then at a random spawnpoint, the script checks if it is inside any colliders (via `colliders = Physics2D.OverlapCircleAll(spawnPosition, 1f);`). If it is inside, it will try again until it spawns in an area without any colliders. An additional requirement that the player must be in the trigger zone as well to reduce the memory usage (ie if player in zone A only Zone A work--although there are some overlap to allow for a little bit of spawning before the player enters a new zone).
+| Spawn Colliders (this is for Zone B) |
+| :------------: | 
+|<img src="./Materials/Animation & Visuals/SpawnCollider.png" width="50%"> |
+
 ### Enemy Improvements
+
+The enemy improvements were made to create a better feel when the player hits an enemy with a bullet. 
+
 #### Death Animation
+
+The first addition made was the death animation. Originally when the enemy is dead, they just are destroyed. However, it made the gameplay ackward because they would just disappear with no visual aid telling you killed them. So a death animation was created (See [Enemy Animations](#enemies) for breakdown of logic). Now when the player kills an enemy, a blood spatter is created where the enemy was killed. Then under a certain amount of time it would disappear.
+
+| Death Animation |
+| :------------: | 
+| ![](/Materials/Animation%20&%20Visuals/Death%20Animation.gif)|
+
+
 #### Impact Animation
+
+Before death, there still needs to be a visual and sound indication of a hit both ways (this was suggest by Lucas originally). The sound effect was implemented by Kevin. In terms of visual effect when a bullet collides with the opposing's `Collider2D` box not only is the bullet destroyed at the spot but the sprite changes color briefly showcasing a hit. Both of these changes (bullet destroy upon collision and visual changes) were made to make a bullet impact more realistic and impactful in the game.
+| Visual Impact & Bullet Destruction |
+| :------------: | 
+| ![](/Materials/Animation%20&%20Visuals/GameFeel_Hit.gif)|
+
+There was one game feel that was noted but unable to resolve which was at times it looked like the enemies are sliding. This is because the direction created are only in four directions. However, the enemy finds the shortest distance to the player which is in the diagonal direction. Since there's no diagonal animation due to time constraint and the four direction system was already well implement, the enemies sometimes look like they are sliding or side-stepping diagonally.
