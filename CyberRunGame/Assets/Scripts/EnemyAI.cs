@@ -15,6 +15,8 @@ public class EnemyAI : MonoBehaviour
     private EnemyHealth enemyHealth;
     public float interpolationSpeed = 5f;
     [SerializeField] private float marginOfError = 0.01f;
+    private Collider[] colliders;
+    private Rigidbody2D rb;
     
 
 
@@ -23,10 +25,19 @@ public class EnemyAI : MonoBehaviour
         enemyHealth = GetComponent<EnemyHealth>();
         myAnim = GetComponent<Animator>(); // gets Animator component
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
+        int currentHealth = enemyHealth.GetCurrentHealth();
+        if (currentHealth <= 0)
+        {
+            gameObject.tag = "Enemy Dead";
+            rb.simulated = false; // Set simulated to false so it doesn't respond to physics
+            return;
+        }
+        
         MoveTowardsPlayer();
         ShootAtPlayer();
 
@@ -36,17 +47,13 @@ public class EnemyAI : MonoBehaviour
         {
             myAnim.SetBool("IsWalking", false);
         }   
+
         lastPosition = transform.position;
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void MoveTowardsPlayer()
     {
-        int currentHealth = enemyHealth.GetCurrentHealth();
-        if (currentHealth <= 0)
-        {
-            return;
-        }
         // Check the distance to the player
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         

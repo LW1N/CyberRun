@@ -244,6 +244,7 @@ MonoBehaviour:
   enemyRenderer: {fileID: 8737895923968853002}
   damageColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   colorChangeDuration: 0.2
+  deathSoundClip: {fileID: 8300000, guid: 7aacb3946ee14ec4db63b1e48255c71d, type: 3}
 --- !u!114 &-6471502280120505635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,8 +260,8 @@ MonoBehaviour:
   player: {fileID: 0}
   projectilePrefab: {fileID: 1146610460894212316, guid: 63e25a95de9b15240b46db9613ea1c9e, type: 3}
   projectileSpeed: 10
-  moveSpeed: 8
-  stopDistance: 3
+  moveSpeed: 2
+  stopDistance: 0
   shootingInterval: 1.8
   interpolationSpeed: 5
   marginOfError: 0.01

@@ -244,6 +244,7 @@ MonoBehaviour:
   enemyRenderer: {fileID: 178065167332836082}
   damageColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   colorChangeDuration: 0.2
+  deathSoundClip: {fileID: 0}
 --- !u!114 &-7712010323441391470
 MonoBehaviour:
   m_ObjectHideFlags: 0

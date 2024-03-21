@@ -2,7 +2,7 @@
 
 ## Summary
 
-**A paragraph-length pitch for your game.**
+Wanted: Cyber Run is an action packed 2d run and gun game. In it, you traverse a cyberpunk city as a man wanted by the mafia! Defend yourself by upgrading your arsenal! while you try to survive endless hordes of mafia members chasing after you! Luckily, you have a way of escape, but you'll have to navigate all the way across the city, do you have what it takes to survive CyberCity?
 
 ## Project Resources
 
@@ -21,6 +21,7 @@
 
 `Mouse Cursor` - Aim Player weapon
 `Left Mouse Click` - Fire Player weapon & select weapon upgrades
+`B` - Open weapon upgrade shop
 
 **The Objective**
 The player must outlast the waves of different enemies and kill enough of them so that when they make their way to the *blue boat* on the docks at the bottom of the map, they have enough money to survive. If the player is not able to withstand the onslaught, upon death an upgrade shop becomes available for them to upgrade their only weapon and try again.
@@ -58,12 +59,60 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 *Minor General Development* - As the producer I was not in charge of any of the major gameplay mechanics or functions. However due to time constraints I was needed to develop and tweak certain parts of features as well as minor features such as the components for enemy and projectile prefabs, adjusting [enemy AI](./CyberRunGame/Assets/Scripts/EnemyAI.cs), adjusting [projectile interactions](/CyberRunGame/Assets/Scripts/BeamScript.cs), and adjusting enemy strength levels.
 
-## User Interface and Input
+## User Interface and Input - Henry Duong
+*Management of Game Scenes* - The game has 4 scenes that it goes through during its runtime. I managed the interface necessary to navigate throughout the scenes along with providing the basic framework of what the first 2 and last scene looked like. I also implemented code that [managed the navigation](/Assets/Scripts/ButtonManager.cs)
 
-**Describe your user interface and how it relates to gameplay. This can be done via the template.**
-**Describe the default input configuration.**
+Start Scene:
 
-**Add an entry for each platform or input style your project supports.**
+<img src="./Materials/User Interface & Input/StartScene.png" width="40%">
+
+This scene leads to the background story scene.
+
+Background Story Scene:
+
+<img src="./Materials/User Interface & Input/BackgroundScene.png" width="40%">
+
+The dialogue is navigated through using scrolling text which can be fully generated with a left click. This scene leads to the gameplay scene.
+
+End Scene:
+
+<img src="./Materials/User Interface & Input/EndScene.png" width="40%">
+
+I made a small animation that scrolls the end credits and moves the restart button to the right. This scene leads back to the start scene.
+
+*Interface Design* - I was in charge of how the game looked to the user, and worked to make it as intuitive and clean as possible. In the 3rd scene, there are multiple screens that can pop up depending on what happens to the user. These are the:
+
+Tutorial Screen:
+
+<img src="./Materials/User Interface & Input/TutorialScreen.png" width="40%">
+
+The tutorial screen closes after the button and never shows up again until the game is fully restarted.
+
+Regular Gameplay Screen:
+
+<img src="./Materials/User Interface & Input/GameplayScreen.png" width="40%">
+
+Shop Screen:
+
+<img src="./Materials/User Interface & Input/ShopScreen.png" width="40%">
+
+This scene is accessed through the press of the key B
+
+Death Screen:
+
+<img src="./Materials/User Interface & Input/DeathScreen.png" width="40%">
+
+All of these were organized and managed by me to create as clean of a UI as possible. I also managed the colors of all the UI along with picking a font that matched Timothy's artistic vision of the game. As most of the art reflects the dark side of cyberpunk, I focused on making the UI pop by using bright colors. The fonts used were [Glitch Goblin by GGBotNet](/https://www.fontspace.com/glitch-goblin-font-f94950)) and [SD Dystopian by Sudezine](/https://www.fontspace.com/sd-dystopian-font-f109410), both of which were free for personal use.
+
+Although I was not in charge of coding the entire health system, I implemented it through a sliding health bar:
+
+<img src="./Materials/User Interface & Input/HealthBar.png" width="40%">
+
+This was managed by [sliders](/Assets/Scripts/PlayerHealthbar.cs)
+
+*Default Input Configuation* - The default input configuration is **WASD/arrows for movement**, the **mouse** to aim, and **left mouse button** to shoot. **B** opens up the shop for upgrades. Everything else is handled through **left clicking buttons.** The only input style our game accepts is mouse and keyboard. This is all explained to the user through the tutorial screen:
+
+<img src="./Materials/User Interface & Input/TutorialScreen.png" width="40%">
 
 ## Movement/Physics
 
@@ -270,7 +319,9 @@ In terms of the projectiles, originally I created more sophisticated design so t
 
 *Bug Fixing* - There were also times when a team member was not available to respond quickly to my testing feedback. In this case, I was able to perform my own bug fixes by taking my time to read and learn from previously written code so that I was able to modify and fix minor sections of the overall codebase. When doing so I made sure to not perform major changes. I would only conduct my own bug fixes if they were minor and did not majorly affect the state of the game so that the rest of the team did not have to suffer any unwanted consequences of minor bug fixes.
 
-## Narrative Design
+## Narrative Design - Henry Duong
+
+*Narrative Aspects* - The narrative is presented to the player in the beginning of the game in the form of a [dialogue box.](/Assets/Scripts/Dialogue.cs) I also handled the summary of the game in both this document as well as the Initial Plan document and pitched the CyberPunk theme. The basic story of the game was also handled by me.
 
 **Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
 

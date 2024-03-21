@@ -16,8 +16,9 @@ public class CarController : MonoBehaviour
         int moneyAmount = MoneyManager.instance.money;
         Debug.Log($"Current money amount: {moneyAmount}");
 
-        // Check if the object to move is not null
-        if (objectToMove != null && other.tag =="Player" && moneyAmount >= money)
+        // Check if the collider is a BoxCollider2D and if it's a trigger
+        BoxCollider2D boxCollider = other.GetComponent<BoxCollider2D>();
+        if (boxCollider != null && boxCollider.isTrigger && other.CompareTag("Player"))
         {
             // Set the target position
             targetPosition = new Vector3(objectToMove.transform.position.x, targetYPosition, objectToMove.transform.position.z);
