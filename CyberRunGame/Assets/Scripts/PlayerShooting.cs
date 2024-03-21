@@ -12,59 +12,24 @@ public class PlayerShoot : MonoBehaviour
     private int strongerBulletsLevel = 0;
     private int piercingBulletsLevel = 0;
     private bool laserEnabled = false;
-    private Animator animator;
-    private Vector2 movement;
 
     void Start()
     {
-        animator = GetComponent<Animator>(); // Get the Animator component attached to the same GameObject as this script
+        if (firePoint == null)
+        {
+            Debug.LogError("Fire Point Transform has not been assigned in the PlayerShoot script.");
+        }
+        else if (!firePoint.gameObject.activeInHierarchy)
+        {
+            Debug.LogError("Fire Point GameObject is not active in the hierarchy.");
+        }
     }
-
-
+    
     void Update()
     {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
         if (Input.GetButtonDown("Fire1"))
         {
-            Vector3 directionToMouse = (mousePosition-transform.position).normalized;
-
-            AnimatorStateInfo currentState = animator.GetCurrentAnimatorStateInfo(0);
-
-            movement.x = animator.GetFloat("X");
-            movement.y = animator.GetFloat("Y");
-            Debug.Log(movement);
-
-            if ((movement.x * directionToMouse.x) > 0)
-            {
-                Shoot();
-            }
-            else if ((movement.y * directionToMouse.y) > 0)
-            {
-                Shoot();
-            }
-            else if (movement.x == 0 && movement.y == 0)
-            {
-                if (currentState.IsName("Player_IdleUp") && directionToMouse.y > 0)
-                {
-                    Shoot();
-                }
-                else if (currentState.IsName("Player_IdleDown") && directionToMouse.y < 0)
-                {
-                    Shoot();
-                }
-                else if (currentState.IsName("Player_IdleLeft") && directionToMouse.x < 0)
-                {
-                    Shoot();
-                }
-                else if (currentState.IsName("Player_IdleRight") && directionToMouse.x < 0)
-                {
-                    Shoot();
-                }
-
-            }
-
-
+            Shoot();
         }
     }
 
@@ -150,7 +115,7 @@ public class PlayerShoot : MonoBehaviour
                 GameObject target = FindClosestTarget(position);
                 if (target != null)
                 {
-                    //beamScript.SetToFollow(target, speed);
+                    beamScript.SetToFollow(target, speed);
                 }
                 else
                 {
@@ -192,13 +157,4 @@ public class PlayerShoot : MonoBehaviour
 
         return closestEnemy;
     }
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Enemy Projectile"))
-        {
-            // Destroy the bullet when it collides with an enemy
-            Destroy(other.gameObject);
-        }
-    }
-
 }
