@@ -114,11 +114,6 @@ This was managed by [sliders](/Assets/Scripts/PlayerHealthbar.cs)
 
 <img src="./Materials/User Interface & Input/TutorialScreen.png" width="40%">
 
-**Describe your user interface and how it relates to gameplay. This can be done via the template.**
-**Describe the default input configuration.**
-
-**Add an entry for each platform or input style your project supports.**
-
 ## Movement/Physics
 
 **Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
