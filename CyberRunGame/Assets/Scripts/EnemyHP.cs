@@ -4,7 +4,6 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public int maxHealth = 100;
-    private Animator myAnim;
     private int currentHealth;
     public Renderer enemyRenderer; // Reference to the player's renderer
     public Color damageColor = Color.grey; // Color to indicate damage
@@ -14,7 +13,6 @@ public class EnemyHealth : MonoBehaviour
 
     void Start()
     {
-        myAnim = GetComponent<Animator>(); // gets Animator component
         currentHealth = maxHealth;
     }
 
@@ -31,26 +29,15 @@ public class EnemyHealth : MonoBehaviour
         // Drops money upon death 
         if (currentHealth <= 0)
         {
-            StartCoroutine(DeadAnimation()); // Start the DeadAnimation coroutine
             MoneyManager.instance.AddMoney(10);
+            Destroy(this.gameObject);
             EnemySpawner spawner = FindObjectOfType<EnemySpawner>();
         }
-    }
-    public int GetCurrentHealth()
-    {
-        return currentHealth;
     }
     IEnumerator ChangeColorTemporary(Color color)
     {
         enemyRenderer.material.color = color;
         yield return new WaitForSeconds(colorChangeDuration);
         enemyRenderer.material.color = Color.white;
-    }
-    IEnumerator DeadAnimation()
-    {
-        myAnim.SetBool("IsDead", true);
-        damageColor = Color.white;
-        yield return new WaitForSeconds(3f);
-        Destroy(this.gameObject);
     }
 }

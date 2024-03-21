@@ -9,7 +9,6 @@ public class PlayerMovement : MonoBehaviour
     private PlayerSprint playerSprint;
 
     public float NormalSpeed { get; private set; } = 5.0f; // Normal speed of the player
-    private int framesToSkip;
 
     void Start()
     {
@@ -22,35 +21,9 @@ public class PlayerMovement : MonoBehaviour
         // Get reference to the PlayerSprint script
         playerSprint = GetComponent<PlayerSprint>(); // Changed reference to PlayerSprint script
     }
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0)) // 0 represents the left mouse button
-        {
-            // Find mouse position in world coordinates
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition.z = 0f; 
-
-            // Find the direction vector from the player to the mouse
-            Vector3 directionToMouse = mousePosition - transform.position;
-            directionToMouse.Normalize(); // Normalize the direction vector if you need unit length
-
-            animator.SetFloat("X", directionToMouse.x);
-            animator.SetFloat("Y", directionToMouse.y);
-            framesToSkip = 2;
-
-        }
-    }
 
     void FixedUpdate()
     {
-        // Check if we need to skip this FixedUpdate
-        if (framesToSkip > 0)
-        {
-            // Reset the flag
-            framesToSkip --;
-            return; // Skip the execution of this FixedUpdate
-        }
-
         float moveHorizontal = Input.GetAxis("Horizontal"); // Get input from horizontal axis (A/D, Left/Right Arrow)
         float moveVertical = Input.GetAxis("Vertical"); // Get input from vertical axis (W/S, Up/Down Arrow)
 

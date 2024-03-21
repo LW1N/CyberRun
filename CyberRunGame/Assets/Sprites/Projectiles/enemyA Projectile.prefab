@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: -77733350152608853}
   - component: {fileID: 5158333594540868928}
   - component: {fileID: 7633476679613894128}
-  - component: {fileID: -5966150947078705438}
   m_Layer: 0
   m_Name: enemyA Projectile
   m_TagString: Enemy Projectile
@@ -163,40 +162,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shooterType: 1
-  damageAmount: 5
+  damageAmount: 10
   pierceCount: 0
---- !u!58 &-5966150947078705438
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5225427432195430606}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.25

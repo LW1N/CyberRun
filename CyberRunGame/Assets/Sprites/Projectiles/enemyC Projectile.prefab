@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1808371777766268239}
   - component: {fileID: -1752030570271437156}
   - component: {fileID: 5634304049823915664}
-  - component: {fileID: -2149715693865513889}
   m_Layer: 0
   m_Name: enemyC Projectile
   m_TagString: Enemy Projectile
@@ -149,18 +148,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-2149715693865513889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1028262081231234349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31d3e562a7cf4bc4a9661863fc16241e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shooterType: 1
-  damageAmount: 6
-  pierceCount: 0

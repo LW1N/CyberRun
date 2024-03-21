@@ -12,15 +12,12 @@ public class EnemyAI : MonoBehaviour
     public float shootingInterval = 2f; // Time between shots
     private float timeSinceLastShot = 0f;
     
-    private EnemyHealth enemyHealth;
     public float interpolationSpeed = 5f;
-    [SerializeField] private float marginOfError = 0.01f;
     
 
 
     void Start()
     {
-        enemyHealth = GetComponent<EnemyHealth>();
         myAnim = GetComponent<Animator>(); // gets Animator component
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
@@ -32,7 +29,7 @@ public class EnemyAI : MonoBehaviour
 
         // checks if distance between from last and current position has changed
         float distance = Vector2.Distance(transform.position, lastPosition);
-        if (distance < marginOfError)
+        if (distance < 0.01f)
         {
             myAnim.SetBool("IsWalking", false);
         }   
@@ -42,11 +39,6 @@ public class EnemyAI : MonoBehaviour
 
     void MoveTowardsPlayer()
     {
-        int currentHealth = enemyHealth.GetCurrentHealth();
-        if (currentHealth <= 0)
-        {
-            return;
-        }
         // Check the distance to the player
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         
@@ -92,7 +84,7 @@ public class EnemyAI : MonoBehaviour
     }
     void InstantiateBeam(Vector2 direction, float speed)
     {
-        Vector3 firePoint = new Vector3(transform.position.x, transform.position.y + 1f, 0f);
+        Vector3 firePoint = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z);
         GameObject beam = Instantiate(projectilePrefab, firePoint, Quaternion.identity);
         Rigidbody2D rb = beam.GetComponent<Rigidbody2D>();
         BeamScript beamScript = beam.GetComponent<BeamScript>();
