@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class PlayerShoot : MonoBehaviour
 {
@@ -172,5 +171,16 @@ public class PlayerShoot : MonoBehaviour
         }
 
         return closestEnemy;
+    }
+
+    // Method to remove all upgrades
+    public void RemoveAllUpgrades()
+    {
+        moreBulletsLevel = 0;
+        fasterBulletsLevel = 0;
+        followingBulletsLevel = 0;
+        strongerBulletsLevel = 0;
+        piercingBulletsLevel = 0;
+        laserEnabled = false;
     }
 }

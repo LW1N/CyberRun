@@ -44,11 +44,38 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // Reset player's position
+        playerHealth.transform.position = new Vector3(5.6f, 16.24f, 0f);
+
+        // Reset player's health to max
+        playerHealth.currentHealth = playerHealth.maxHealth;
+
+        // Reset health bar UI
+        if (playerHealth.healthSlider != null)
+        {
+            playerHealth.healthSlider.value = playerHealth.maxHealth;
+        }
+
+        // Reset player's money to 0 using MoneyManager
+        MoneyManager.instance.money = 0;
+
+        // Update money text
+        if (MoneyManager.instance.moneyText != null)
+        {
+            MoneyManager.instance.moneyText.text = $"Money: ${MoneyManager.instance.money}";
+        }
+
+        shopPanel.GetComponent<ShopManager>().RemoveAllUpgrades();
+
+
         // Ensure to reset the game's time scale if you've paused it
         Time.timeScale = 1f;
-        // Reset other game states as needed
+
+        // Hide game over screen
+        gameOverScreen.SetActive(false);
     }
+
+
     public void ContinueToShop()
     {
         bool isShopActive = shopPanel.activeSelf;
