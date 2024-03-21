@@ -124,11 +124,19 @@ Note: The boats are not drawn by me. They are sourced from a free-to-use assets 
 |  :------------: |
 |  <img src="./Materials/Animation & Visuals/ZoneD.png" width="80%"> | 
 ### Map Interactions
+
+With the buildings and other obstacles included in the map, the following tilemap hierachy was established for flexibility in adjusting certain collision parameters. This will be discussed more in [Game Feel](#game-feel-and-polish) (which was also my role), but `TileMap Collider 2D` and `RigidBody2d` was used on these obstacles so the players can interact with. A `Composite Collider 2D` was also implemented so there would not be individual tilemap colliders for each tile--making it less intensive to run.
+
+Some colliders were adjusted to create a more realistic interaction with these objects (see [Game Feel](#game-feel-and-polish)).
+
+#### Sorting System
+With the multiple layers in the map, as sorting system was established: **(1) background** and **(2) foreground**. Any layer that does not have interactions (streets, ground, water) they were in background layer. Then the foreground are all the objects that have interactions with the player(cars, player, fences, etc.). 
+
+Then (discussed more intently in [Game Feel](#game-feel-and-polish)) the sorting axis was by the y-axis. This is why only one layer for the foreground objects was chosen, as the further sorting is done by the y-axis location of the items. This also restricted the use of `Order Layers` as all had to be at the same order for the y-axis sorting to function properly.
+
 ### Visual Guide for Characters
 
 Each character is animated in 64 by 64 pixels frames. Given this is a 2D top down shooter game, we decided to do 4 directions for each character (up, down, left, right).
-
-The animation for each character is done with 60 frames per second with each key frame at every 6 frames.
 
 Specific Visual Guides:
  - Each character must have a black outlines.
@@ -176,6 +184,23 @@ Finally gang D, similar to gang C will wear a cyberpunk themed helmet. This time
 | ![](/Materials/Animation%20&%20Visuals/enemyd_up.gif)   | ![](/Materials/Animation%20&%20Visuals/enemyd_down.gif) | ![](/Materials/Animation%20&%20Visuals/enemyd_left.gif) | ![](/Materials/Animation%20&%20Visuals/enemyd_right.gif) |![](/Materials/Animation%20&%20Visuals/enemyd_idle.gif)|
 
 ### Animation Set Up
+After each frame is drawn in Krita, a spritesheet is created for each animation state. Then in Unity, in the `Animation` window the animation clips for each direction was created. The animation for each character is done with 60 frames per second with each key frame at every 6 frames. This was chosen because it best matched the set movement speed for each character.
+
+
+Both the players' and enemies' animation controllers were set up under a similar structure: a blend tree.
+
+#### Player Animator
+The animator for the player has two trees: idle and walking. For each tree, the player has four directions it can go (up, down, right, left). The blend type set then is `2D Simple Directional`. Within the `PlayerMovement.cs`, if the player moves (ie W,A,S,D is pressed) it sets `IsWalking` to true trigger the walking state. If the player is not moving, it is in the idle state by setting `IsWalking` to false.
+
+For each state, a motion field is created between within a $[-1,1]^2$ subspace. Thus it finds the normalized distance and based on where it is in the motion field the proper animation plays.
+
+| **Animator** | **Walking Blend Tree** |**Motion Field** | 
+| :------------: | :------------: | :------------: | 
+| <img src="./Materials/Animation & Visuals/Animator.png" width="50%">   | <img src="./Materials/Animation & Visuals/WalkingBlendTree.png" width="100%"> | <img src="./Materials/Animation & Visuals/MotionField.png" width="50%"> |
+#### Enemy Animator 
+The enemy's animator is much more simpler as since it is continuosly chasing the player there is no need for a idle tree. Thus it starts in an `Idle Down` state and when it begins to move it triggers the walking tree. The tree is set up exactly like in the player animator. A motion field was created to determine the proper animation. However, instead of checking for controller inputs to trigger states, in `EnemyAI.cs` it tracks the distance moved from a current update to the last update. Therefore if the distance moved is 0 (plus or minus a margin of error), the enemy's `IsWalking` is triggered to false and becomes in the `Idle Down` state.
+
+
 ### Weapons/Projectiles
 ## Game Logic
 
