@@ -89,7 +89,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!61 &8400490815526476760
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -263,3 +263,4 @@ MonoBehaviour:
   stopDistance: 4
   shootingInterval: 1
   interpolationSpeed: 5
+  marginOfError: 0.01
