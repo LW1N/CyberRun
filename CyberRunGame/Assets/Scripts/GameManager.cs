@@ -78,6 +78,13 @@ public class GameManager : MonoBehaviour
 
         shopPanel.GetComponent<ShopManager>().RemoveAllUpgrades();
 
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        
+        foreach (GameObject enemy in enemies)
+        {
+            Destroy(enemy);
+        }
+
 
         // Ensure to reset the game's time scale if you've paused it
         Time.timeScale = 1f;

@@ -69,7 +69,7 @@ public class EnemyHealth : MonoBehaviour
     {
         myAnim.SetBool("IsDead", true);
         damageColor = Color.white;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
 }
