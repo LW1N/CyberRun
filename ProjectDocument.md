@@ -386,6 +386,10 @@ When the player dies, the player is still sent to the Game Over screen, which st
 ### cybertruck-mood-maze-main-version-15624-02-20.mp3 
 Credit: https://uppbeat.io/track/mood-maze/cybertruck   
 This was the main background music used for the game. This is played throughout the whole game and loops itselve when finished. I decided to have a similar background sound track to that of CyberPunk77, an uplifting tempo futuristic sounding background music. 
+
+### arpeggiator-end-credits-wav-14644.mp3
+Credit: https://pixabay.com/sound-effects/arpeggiator-end-credits-wav-14644/
+This was the end credit cutscene background music. This sound is very reminiscent of older games (early 1990s and 2000s video end credit scene music).I've selected this MP3 file because it conveys a sense of significant achievement to the player. Moreover, it instills a sense of mystery, leaving the player intrigued about what lies ahead.
    
 ### pixel-death-66829.mp3 
 Credit: https://pixabay.com/sound-effects/pixel-death-66829/   
@@ -399,6 +403,11 @@ This mp3 played everytime the player decides to fire a projectile. I was going f
 Credit: https://pixabay.com/sound-effects/cash-register-kaching-sound-effect-125042/   
 This sound was implemented after the player was successful in making an upgrade purchase. I wanted the player to feel as if they made a big and meaningful purchase.   
    
+### 02 Reign Of Chaos.mp3 
+Credit: https://www.youtube.com/watch?v=dskLTjbDvfs&t=272s
+This mp3 file was used for the start and dialogue portion of the game. 
+
+
 
 
 ## Gameplay Testing/Bug Fixing - Lucas Nguyen
