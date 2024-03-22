@@ -90,29 +90,31 @@ Tutorial Screen:
 
 <img src="./Materials/User Interface & Input/TutorialScreen.png" width="40%">
 
-The tutorial screen closes after the button and never shows up again until the game is fully restarted.
+The tutorial screen closes after the button and never shows up again until the game is fully restarted. This scene is to give the user a basic rundown of every inout necessary to play the game. Every graphic necessary to construct the screen was made by myself through pixilart.com and Unity.
 
 Regular Gameplay Screen:
 
 <img src="./Materials/User Interface & Input/GameplayScreen.png" width="40%">
 
+This scene is organized with the health bar in sight in the top left and the money count in the top right.
+
 Shop Screen:
 
 <img src="./Materials/User Interface & Input/ShopScreen.png" width="40%">
 
-This scene is accessed through the press of the key B
+This scene is accessed through the press of the key B, it pauses the game.
 
 Death Screen:
 
 <img src="./Materials/User Interface & Input/DeathScreen.png" width="40%">
 
-All of these were organized and managed by me to create as clean of a UI as possible. I also managed the colors of all the UI along with picking a font that matched Timothy's artistic vision of the game. As most of the art reflects the dark side of cyberpunk, I focused on making the UI pop by using bright colors. The fonts used were [Glitch Goblin by GGBotNet](/https://www.fontspace.com/glitch-goblin-font-f94950)) and [SD Dystopian by Sudezine](/https://www.fontspace.com/sd-dystopian-font-f109410), both of which were free for personal use.
+All of these were organized and managed by me to create as clean of a UI as possible. I also managed the colors of all the UI along with picking a font that matched Timothy's artistic vision of the game. As most of the art reflects the dark side of cyberpunk, I focused on making the UI pop by using primarily brighr blue sampled directly from the colors on the "CyberRun" portion of the logo. The fonts used were [Glitch Goblin by GGBotNet](/https://www.fontspace.com/glitch-goblin-font-f94950)) and [SD Dystopian by Sudezine](/https://www.fontspace.com/sd-dystopian-font-f109410), both of which were free for personal use.
 
 Although I was not in charge of coding the entire health system, I implemented it through a sliding health bar:
 
 <img src="./Materials/User Interface & Input/HealthBar.png" width="40%">
 
-This was managed by [sliders](/Assets/Scripts/PlayerHealthbar.cs)
+This was managed by [sliders](/Assets/Scripts/PlayerHealthbar.cs). The design was put together in Unity by utilitzing different sprites created by myself in the sprite creation website pixilart.com
 
 *Default Input Configuation* - The default input configuration is **WASD/arrows for movement**, the **mouse** to aim, and **left mouse button** to shoot. **B** opens up the shop for upgrades. Everything else is handled through **left clicking buttons.** The only input style our game accepts is mouse and keyboard. This is all explained to the user through the tutorial screen:
 
@@ -436,7 +438,9 @@ This mp3 file was used for the laser sound effect. Deep sound profile. Very diff
 
 ## Narrative Design - Henry Duong
 
-*Narrative Aspects* - The narrative is presented to the player in the beginning of the game in the form of a [dialogue box.](/Assets/Scripts/Dialogue.cs) I also handled the summary of the game in both this document as well as the Initial Plan document and pitched the CyberPunk theme. The basic story of the game was also handled by me.
+*In Game Aspects* - The narrative is presented to the player in the beginning of the game in the form of a [dialogue box.](/Assets/Scripts/Dialogue.cs). This was initially a scrolling credits-like scene, but it was reworked because the initial implementation was too clunky.
+
+*Overall Narrative Vision* - The bulk and framework of the narrative was planned by me. I pitched the CyberPunk theme and took charge of writing the summaries on the Initial Plan and Project Document. Additionally, the idea of getting chased by the cyberpunk mafia and having to navigate to escape the city was sketched out by me as well.
 
 **Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
 
