@@ -23,11 +23,11 @@ public class ShopManager : MonoBehaviour
         }
 
         UpdateGoldText();
-        moreBulletsButton.onClick.AddListener(() => BuyUpgrade("MoreBullets", 50));
-        fasterBulletsButton.onClick.AddListener(() => BuyUpgrade("FasterBullets", 30));
-        followingBulletsButton.onClick.AddListener(() => BuyUpgrade("FollowingBullets", 300));
-        strongerBulletsButton.onClick.AddListener(() => BuyUpgrade("StrongerBullets", 50));
-        piercingBulletsButton.onClick.AddListener(() => BuyUpgrade("PiercingBullets", 60));
+        moreBulletsButton.onClick.AddListener(() => BuyUpgrade("MoreBullets", 500));
+        fasterBulletsButton.onClick.AddListener(() => BuyUpgrade("FasterBullets", 100));
+        followingBulletsButton.onClick.AddListener(() => BuyUpgrade("FollowingBullets", 1000));
+        strongerBulletsButton.onClick.AddListener(() => BuyUpgrade("StrongerBullets", 100));
+        piercingBulletsButton.onClick.AddListener(() => BuyUpgrade("PiercingBullets", 150));
     }
 
     void UpdateGoldText()
