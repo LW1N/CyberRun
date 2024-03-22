@@ -28,6 +28,7 @@ public class ShopManager : MonoBehaviour
         followingBulletsButton.onClick.AddListener(() => BuyUpgrade("FollowingBullets", 1000));
         strongerBulletsButton.onClick.AddListener(() => BuyUpgrade("StrongerBullets", 100));
         piercingBulletsButton.onClick.AddListener(() => BuyUpgrade("PiercingBullets", 150));
+        laserButton.onClick.AddListener(() => BuyUpgrade("Laser", 1000));
     }
 
     void UpdateGoldText()

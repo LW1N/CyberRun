@@ -12,8 +12,10 @@ public class PlayerShoot : MonoBehaviour
     private int piercingBulletsLevel = 0;
     private bool laserEnabled = false;
     public AudioClip shootingSoundClip;
+    public AudioClip laserShootingSoundClip;
     public PlayerHealth playerHealth;
-
+    private float timeSinceLastShot = 0f;
+    private float fireRate = 0.5f;
     void Start()
     {
         if (firePoint == null)
@@ -27,9 +29,20 @@ public class PlayerShoot : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") && playerHealth.currentHealth > 0 && !GameManager.IsShopOpen)
+        timeSinceLastShot += Time.deltaTime;
+
+        // Check if the fire button is being held, the player is alive, and the shop is not open
+        if (Input.GetButton("Fire1") && playerHealth.currentHealth > 0 && !GameManager.IsShopOpen)
         {
-            Shoot();
+            // Modify fire rate if laser is enabled
+            float currentFireRate = laserEnabled ? 0.3f : fireRate;
+
+            // Only shoot if enough time has elapsed based on the current fire rate
+            if (timeSinceLastShot >= currentFireRate)
+            {
+                Shoot();
+                timeSinceLastShot = 0f;
+            }
         }
     }
 
@@ -43,20 +56,21 @@ public class PlayerShoot : MonoBehaviour
             Vector3 positionOffset = new Vector3((i - (totalBullets - 1) / 2.0f) * 0.5f, 0, 0);
             InstantiateBeam(firePoint.position + positionOffset, direction, beamSpeed + (fasterBulletsLevel * 5));
         }
-        if (shootingSoundClip != null)
+        
+        AudioClip clipToPlay = laserEnabled ? laserShootingSoundClip : shootingSoundClip;
+
+        if (clipToPlay != null)
         {
             AudioSource shootingSound = gameObject.AddComponent<AudioSource>();
-            shootingSound.clip = shootingSoundClip;
+            shootingSound.clip = clipToPlay;
             shootingSound.playOnAwake = false;
-            // Set the volume to 50%
-            // Becareful as the audio is very loud else 
-            shootingSound.volume = 0.1f;
+            shootingSound.volume = laserEnabled ? 10f : 0.1f; // Make laser sound louder
             shootingSound.Play();
-            Destroy(shootingSound, shootingSoundClip.length);
+            Destroy(shootingSound, clipToPlay.length);
         }
         else
         {
-            Debug.LogWarning("ShootingSoundClip is not assigned in the Inspector.");
+            Debug.LogWarning("Shooting sound clip is not assigned in the Inspector.");
         }
     }
 
@@ -123,25 +137,22 @@ public class PlayerShoot : MonoBehaviour
         BeamScript beamScript = beam.GetComponent<BeamScript>();
         float lifeSpan = 1.0f;
 
+        // Modify beam properties if laser is enabled
+        if (laserEnabled)
+        {
+            beam.transform.localScale = new Vector3(3.0f, 1.5f, 1);
+            // Change color to red
+            SpriteRenderer beamSprite = beam.GetComponent<SpriteRenderer>();
+            if (beamSprite != null)
+            {
+                beamSprite.color = Color.red;
+            }
+            beamScript.damageAmount = 999;
+        }
+
         if (rb != null && beamScript != null)
         {
-            if (followingBulletsLevel == 1)
-            {
-                GameObject target = FindClosestTarget(position);
-                if (target != null)
-                {
-                    beamScript.SetToFollow(target, speed);
-                }
-                else
-                {
-                    rb.velocity = direction * speed;
-                }
-            }
-            else
-            {
-                rb.velocity = direction * speed;
-            }
-
+            rb.velocity = direction * speed;
             beamScript.damageAmount += strongerBulletsLevel * 10;
             beamScript.pierceCount = piercingBulletsLevel;
         }
@@ -150,9 +161,9 @@ public class PlayerShoot : MonoBehaviour
             Debug.LogError("Beam prefab is missing required components (Rigidbody2D or BeamScript).");
         }
 
-        // Clean gameobject after certain time
         Destroy(beam, lifeSpan);
     }
+
 
     GameObject FindClosestTarget(Vector2 position)
     {
