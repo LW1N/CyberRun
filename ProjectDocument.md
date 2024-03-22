@@ -7,8 +7,11 @@ Wanted: Cyber Run is an action packed 2d run and gun game. In it, you traverse a
 ## Project Resources
 
 [Web-playable version of your game.](https://itch.io/)  
+
 [YouTube link for trailer](https://www.youtube.com/watch?v=q4ZRa82txFA)
+
 [Press Kit website link](https://oval-lilac-9njw.squarespace.com/) - when prompted, use password 'cyber' without quotations. 
+
 [Proposal: Initial Plan](https://docs.google.com/document/d/1mTcej1XkV0b86fvPoavogw3iHswhOYx9IMi1iMxz6IA/edit?usp=sharing)  
 
 ## Gameplay Explanation
