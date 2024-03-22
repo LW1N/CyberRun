@@ -31,24 +31,13 @@ Wanted: Cyber Run is an action packed 2d run and gun game. In it, you traverse a
 The player must outlast the waves of different enemies and kill enough of them so that when they make their way to the *blue boat* on the docks at the bottom of the map, they have enough money to survive. If the player is not able to withstand the onslaught, upon death an upgrade shop becomes available for them to upgrade their only weapon and try again.
 
 **Tips**
-- Keep moving so that it is hard for the enemies to hit you
+- Keep your distance and keep moving so that it is hard for the enemies to hit you
 - Don't be scared of spending money on upgrades to make it to the end
 - Keep firing at enemies to collect money and prevent too many from spawning
 - Use your sprint at key moments in order to get out of danger and reposition
 - Be aware of slower and faster enemies that may catch you off guard
 
 # Main Roles
-
-Your goal is to relate the work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
-
-Below is a template for you to highlight items of your work. These provide the evidence needed for your work to be evaluated. Try to have at least four such descriptions. They will be assessed on the quality of the underlying system and how they are linked to course content. 
-
-*Short Description* - Long description of your work item that includes how it is relevant to topics discussed in class. [link to evidence in your repository](https://github.com/dr-jam/ECS189L/edit/project-description/ProjectDocumentTemplate.md)
-
-Here is an example:  
-*Procedural Terrain* - The game's background consists of procedurally generated terrain produced with Perlin noise. The game can modify this terrain at run-time via a call to its script methods. The intent is to allow the player to modify the terrain. This system is based on the component design pattern and the procedural content generation portions of the course. [The PCG terrain generation script](https://github.com/dr-jam/CameraControlExercise/blob/513b927e87fc686fe627bf7d4ff6ff841cf34e9f/Obscura/Assets/Scripts/TerrainGenerator.cs#L6).
-
-You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
 
 ## Producer - Lucas Nguyen
 *Project Timeline* - Here is a [Gantt chart](./Materials/cyberrun_ganttchart.pdf) that depicts the timeline in which our project was completed.
