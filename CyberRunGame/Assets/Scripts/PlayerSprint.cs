@@ -4,7 +4,7 @@ public class PlayerSprint : MonoBehaviour
 {
     public float sprintSpeed = 8.0f; // Speed of the player while sprinting
     public float sprintDuration = 3.0f; // Duration of sprint in seconds
-    public float depletionRate = 0.5f; // Rate the stamina depletes while sprinting
+    public float depletionRate = 1.5f; // Rate the stamina depletes while sprinting
     public float regenerationRate = 0.2f; // Rate the stamina regenerates when not sprinting
 
     private float sprintTimer; // Timer for sprint duration

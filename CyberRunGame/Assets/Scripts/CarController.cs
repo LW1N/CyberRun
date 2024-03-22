@@ -9,6 +9,12 @@ public class CarController : MonoBehaviour
     public float targetYPosition;
     private Vector3 targetPosition; // The target Y position to move the object to
     private float moveSpeed = 10f;
+    public GameObject uiObject;
+
+    void Start()
+    {
+        uiObject.SetActive(false);
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -18,13 +24,18 @@ public class CarController : MonoBehaviour
 
         // Check if the collider is a BoxCollider2D and if it's a trigger
         BoxCollider2D boxCollider = other.GetComponent<BoxCollider2D>();
-        if (boxCollider != null && boxCollider.isTrigger && other.CompareTag("Player"))
+        if (boxCollider != null && boxCollider.isTrigger && other.CompareTag("Player") && moneyAmount >= money)
         {
             // Set the target position
             targetPosition = new Vector3(objectToMove.transform.position.x, targetYPosition, objectToMove.transform.position.z);
 
             // Start moving the object towards the target position
             StartCoroutine(MoveObject(objectToMove.transform, targetPosition, moveSpeed));
+        }
+        if (boxCollider != null && boxCollider.isTrigger && other.CompareTag("Player") && moneyAmount < money)
+        {
+            uiObject.SetActive(true);
+            StartCoroutine("WaitForSec");
         }
     }
 
@@ -41,5 +52,11 @@ public class CarController : MonoBehaviour
 
         // Ensure the object reaches exactly the target position
         objectTransform.position = targetPosition;
+    }
+
+    IEnumerator WaitForSec()
+    {
+        yield return new WaitForSeconds(3);
+        Destroy(uiObject);
     }
 }

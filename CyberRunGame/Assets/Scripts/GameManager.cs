@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
                         -30.5f, enterCarObject.transform.position.z);
         GameObject exitCarObject = GameObject.FindGameObjectWithTag("Exit Car");
         exitCarObject.transform.position = new Vector3(exitCarObject.transform.position.x, 
-                        -21.51f, exitCarObject.transform.position.z);
+                        -25.04f, exitCarObject.transform.position.z);
 
 
 

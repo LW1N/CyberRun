@@ -163,10 +163,10 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -16, y: -15}
+      - - {x: -16, y: -16}
         - {x: -9, y: -16}
         - {x: 10, y: -16}
-        - {x: 16, y: -14}
+        - {x: 16, y: -16}
         - {x: 16, y: -4}
         - {x: -16, y: -4}
       tessellationDetail: 0

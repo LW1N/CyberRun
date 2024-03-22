@@ -36,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
         {
             Vector2 spawnPosition = mainCamera.ViewportToWorldPoint(new Vector3(Random.Range(0f, 1f), Random.Range(0, 2) > 0 ? 1.1f : -0.1f, mainCamera.nearClipPlane));
             // Check if the spawn position is within the trigger zone attached to this object
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(spawnPosition, 1f);
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(spawnPosition, 0.1f);
             
             bool isInTriggerZone = false;
             foreach (Collider2D collider in colliders)

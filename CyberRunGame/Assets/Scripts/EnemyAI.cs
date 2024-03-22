@@ -4,7 +4,7 @@ public class EnemyAI : MonoBehaviour
 {
     public Transform player; // Assign the player's Transform in the Inspector
     private Animator myAnim;
-    private Vector2 lastPosition = new Vector2(0f, 0f);
+    private Vector2 lastPosition = new Vector3(0f, 0f, 0f);
     public GameObject projectilePrefab; // Assign a fireball prefab in the Inspector
     public float projectileSpeed = 10f;
     public float moveSpeed = 5f; // Enemy move speed
@@ -46,7 +46,16 @@ public class EnemyAI : MonoBehaviour
         if (distance < marginOfError)
         {
             myAnim.SetBool("IsWalking", false);
-        }   
+        }
+        else
+        {
+            myAnim.SetBool("IsWalking", true); // set animation to Walking state
+            Vector3 directionToPlayer = (player.position - transform.position).normalized;
+            
+            // Set the smoothed animation values
+            myAnim.SetFloat("X", directionToPlayer.x);
+            myAnim.SetFloat("Y", directionToPlayer.y);
+        }
 
         lastPosition = transform.position;
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -60,21 +69,9 @@ public class EnemyAI : MonoBehaviour
         // Move towards the player if further away than stopDistance
         if (distanceToPlayer > stopDistance)
         {
-            myAnim.SetBool("IsWalking", true); // set animation to Walking state
-            // Calculate the difference between player and transform positions
-            float deltaX = player.position.x - transform.position.x;
-            float deltaY = player.position.y - transform.position.y;
-
-            // Smoothly interpolate the X and Y animation values
-            float smoothX = Mathf.Lerp(myAnim.GetFloat("X"), deltaX, Time.deltaTime * interpolationSpeed);
-            float smoothY = Mathf.Lerp(myAnim.GetFloat("Y"), deltaY, Time.deltaTime * interpolationSpeed);
-
-            // Set the smoothed animation values
-            myAnim.SetFloat("X", smoothX);
-            myAnim.SetFloat("Y", smoothY);
-            
             // Normalize the vector to get direction and multiply by moveSpeed and deltaTime for smooth movement
             Vector3 directionToPlayer = (player.position - transform.position).normalized;
+
             transform.position += directionToPlayer * moveSpeed * Time.deltaTime;
         }
     }
