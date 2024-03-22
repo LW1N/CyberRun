@@ -36,6 +36,5 @@ public class SceneSwitch : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         Destroy(uiObject);
-        Destroy(gameObject);
     }
 }
