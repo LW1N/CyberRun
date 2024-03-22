@@ -330,7 +330,7 @@ I will note the quality of the animation is more compressed in game as the anima
 | Pop Up when Player Has No Money | End Scene Animation|
 | :------------: | :------------: |
 | ![](/Materials/Animation%20&%20Visuals/End_Trigger.gif) | ![](/Materials/Animation%20&%20Visuals/endscene.gif) | 
-## Game Logic
+## Game Logic - Kevin Lin
 
 I have designed the first build of the game. Major of key components were later utilized in the development of the game's final version. I have taken core concepts from games such as The Binding of Isaac and Vampire Surviviors, and implemented them in such a way that it takes sense in our game. 
 
@@ -381,7 +381,7 @@ When the player dies, the player is still sent to the Game Over screen, which st
 
 # Sub-Roles
 
-## Audio
+## Audio - Kevin Lin
    
 ### cybertruck-mood-maze-main-version-15624-02-20.mp3 
 Credit: https://uppbeat.io/track/mood-maze/cybertruck   
@@ -449,7 +449,7 @@ To create the trailer, I used WonderShare Filmora application. This allowed me t
 
 Similarly to the press kit, I used the [CyberPunk fonts](https://www.fontspace.com/category/cyberpunk) in order to create the text transitions in the trailer. 
 
-## Game Feel and Polish
+## Game Feel and Polish - Timothy Shen
 
 ### Player Improvements
 #### Player Animation
