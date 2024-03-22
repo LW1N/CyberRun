@@ -28,13 +28,13 @@ Wanted: Cyber Run is an action packed 2d run and gun game. In it, you traverse a
 `B` - Open weapon upgrade shop
 
 **The Objective**
-The player must outlast the waves of different enemies and kill enough of them so that when they make their way to the *blue boat* on the docks at the bottom of the map, they have enough money to survive. If the player is not able to withstand the onslaught, upon death an upgrade shop becomes available for them to upgrade their only weapon and try again.
+The player must outlast the waves of different enemies and kill enough of them so that when they make their way to the *blue boat* on the docks at the bottom of the map, they have enough money to make it out. If the player is not struggling to withstand the onslaught, pressing `B` will bring up an upgrade shop for them to upgrade their only weapon and try again.
 
 **Tips**
 - Keep your distance and keep moving so that it is hard for the enemies to hit you
 - Don't be scared of spending money on upgrades to make it to the end
 - Keep firing at enemies to collect money and prevent too many from spawning
-- Use your sprint at key moments in order to get out of danger and reposition
+- Use your sprint at key moments in order to get out of danger and reposition, but be aware of stamina depletion
 - Be aware of slower and faster enemies that may catch you off guard
 
 # Main Roles
@@ -408,7 +408,7 @@ This mp3 file was used for the laser sound effect. Deep sound profile. Very diff
 ## Gameplay Testing/Bug Fixing - Lucas Nguyen
 *Self Testing* - When testing the game myself, I would communicate thoroughly with the team and the specific team members that were responsible for any specific bugs that I would find. The simplicity of the game mechanics meant that a lot of testing was easily solved done with the use of debugging statements and console error messages. Testing felt very efficient with discord as I was able to reach out and provide feedback very fast through messages and calls. 
 
-*PlayTest Sessions* - When having other people test the game, I would have them play the game for a short period of time and take note of any feedback they offered from their experience. With this feedback I was able to work with the team on suggestions and potential solutions that I also took note of. These ideas eventually turned into well thought out solutions to the feedback we were given that we integrated into our game.
+*PlayTest Sessions* - When having other people test the game, I would have them play the game for a short period of time and ask them to provide any feedback they had from their experience. With this feedback I was able to work with the team on suggestions and potential solutions that I also took note of. These ideas eventually turned into well thought out solutions that we integrated into our game.
 
 | <sub>PlayTest Session #<sub> | <sub>Feedback<sub> |<sub>Notes/Solutions<sub>
 | :------------: | :------------: | :------------: |
