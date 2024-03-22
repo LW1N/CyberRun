@@ -298,17 +298,74 @@ I will note the quality of the animation is more compressed in game as the anima
 | ![](/Materials/Animation%20&%20Visuals/End_Trigger.gif) | ![](/Materials/Animation%20&%20Visuals/endscene.gif) | 
 ## Game Logic
 
-**Document the game states and game data you managed and the design patterns you used to complete your task.**
+I have designed the first build of the game. Major of key components were later utilized in the development of the game's final version. I have taken core concepts from games such as The Binding of Isaac and Vampire Surviviors, and implemented them in such a way that it takes sense in our game. 
+
+### Components of the game that were kept and updated   
+
+#### Basic player movements  
+I have implemented the first variation of movements that the player can perform which is controlled using WASD. There were couple fixes to player movements such as preventing faster movement when pressing two direction buttons such as up and right at the same time. Other player movement improvement was the addition of having the player be able to sprint.   
+
+#### Player shooting   
+I have implemented a simple shooting mechanic where the projectile will fire at where the mouse/cursor is located at. There are many upgrades that the projectile can recieve such as damage upgrade, projectile speed, projectile spread, etc.    
+![Desktop 2024 03 21 - 14 48 51 03 (online-video-cutter com) (1)](https://github.com/LW1N/CyberRun/assets/157579854/16d83a4c-3c1f-4717-9870-deb79b044b4d)
+
+#### Basic UI for health and money   
+I have created a template UI that kept track of the player's health and money.   
+![image](https://github.com/LW1N/CyberRun/assets/157579854/923bf5a4-5bd0-4e91-a61c-e6229694ff6f)   
+   
+#### Basic enemy AI spawning, movements, and firing   
+In the early build of the game, the enemy AI was programmed in a way that the enemies will spawn in random intervals and barely outside of the player's view. Additionally, they are programmed to move towards the player and only fire a projectile when they are in vision of the player.    
+![image](https://github.com/LW1N/CyberRun/assets/157579854/aec92052-83f4-472d-a0aa-53122eea6966)   
+ 
+#### Collision detection   
+When the player collides with another object whether it was an enemy or enemy projectile, the player would take damage according to the type of object. When the player fires a projectile and the projectile hits the enemy, the projectile disappears and the enemy takes damage.    
+     
+### Scene transitions between game scene, game over scene, item shop screen  
+The scene transition for the three main scenes (game, game over, item shop) were all handled using a game manager. The game manager had various scripts for each different event such as when the player wants to continue the game, quit the game, or when the player have recieved money/gold. Furthermore the game manager was responsible for showing and hiding the correct scenes that was suppose to be shown. Buttons were used such that the player can buy items, continue, or exit the game. In the early version of the game, the idea was to have the player start in the game scene and, when they die, the game over screen will appear. The game over screen will ask the player whether they want to continue or not. If the player clicks on exit, then the game will close. If the player chooses to click continue, the item shop with the player's accumulated money will appear. The player is able to purchase items inside of the item shop. When the player is ready, the player will be revived with full HP and have the the appropriate amount of gold and upgrades. This ordering of events will soon rather be changed in the later revisions of the game.   
+
+### Main Game Scene 
+![image](https://github.com/LW1N/CyberRun/assets/157579854/325c95e1-a1b1-4199-a387-ffa0cfea6df9)   
+
+### Game Over Scene
+![image](https://github.com/LW1N/CyberRun/assets/157579854/8bfd47b3-1e28-4306-b79c-e43fb3f7f61b)   
+
+### Item Shop Scene  
+![image](https://github.com/LW1N/CyberRun/assets/157579854/0a13d717-2f65-4e65-95b8-3fbf5651e8ed)   
+
+### Early Demo run of the game (very laggy due to image compression) 
+![Desktop_2024 03 07_-_03 58 22 01 (1)](https://github.com/LW1N/CyberRun/assets/157579854/f918c7e4-c316-4d98-af08-2d755029bdfe)
+
+
+## Components of the game that were added or changed after beta version 
+
+### New Upgrades 
+In previous builds of the game, the player was only able to make one upgrade. This was changed to allow the player to have multiple upgrades such as more projectile, faster projectile, following projectile, stronger projectile, and a lazer upgrade. The price for each upgrade was changed later according to how strong the item was percieved to be. Additionally, the player was now able to make more than one purchase to any given item (aside from the lazer and following projectile).   
+![image](https://github.com/LW1N/CyberRun/assets/157579854/bc178e83-2b96-4601-9dbf-12e6cf314b25)
+
+### New game logic 
+When the player dies, the player is still sent to the Game Over screen, which still has two buttons (Continue and Exit). Alternatively, when the player clicks on the Continue button, they are not longer sent into the item shop. Instead of allowing the player to keep their gold and upgrades on death, the new system will punish players who are not able to complete the game in a single run. The player will lose all of their money and upgrades and will be revived at the beginning of the game. The item shop has been changed such that the player can now access the item shop when in the game screen and pauses the game. 
 
 # Sub-Roles
 
 ## Audio
+   
+### cybertruck-mood-maze-main-version-15624-02-20.mp3 
+Credit: https://uppbeat.io/track/mood-maze/cybertruck   
+This was the main background music used for the game. This is played throughout the whole game and loops itselve when finished. I decided to have a similar background sound track to that of CyberPunk77, an uplifting tempo futuristic sounding background music. 
+   
+### pixel-death-66829.mp3 
+Credit: https://pixabay.com/sound-effects/pixel-death-66829/   
+This mp3 was used whenever the player takes damage. This audio clip was purposely made to be much more quieter than the other sound effects as it got annoying to listen to afterwhile. Inspired by Minecraft Villager noises. Very distinct so that the player will know that they have gotten hit without checking the health bar.     
+   
+### beam.mp3 
+Credit: https://pixabay.com/sound-effects/beam-8-43831/   
+This mp3 played everytime the player decides to fire a projectile. I was going for a sound that sounds similar to what a futuristic gun would sound like. Additionally, Star Wars played a big impiration for why I have decided to chose this mp3.  
+   
+### cash-register-kaching-sound-effect-125042.mp3   
+Credit: https://pixabay.com/sound-effects/cash-register-kaching-sound-effect-125042/   
+This sound was implemented after the player was successful in making an upgrade purchase. I wanted the player to feel as if they made a big and meaningful purchase.   
+   
 
-**List your assets, including their sources and licenses.**
-
-**Describe the implementation of your audio system.**
-
-**Document the sound style.** 
 
 ## Gameplay Testing/Bug Fixing - Lucas Nguyen
 *Self Testing* - When testing the game myself, I would communicate thoroughly with the team and the specific team members that were responsible for any specific bugs that I would find. The simplicity of the game mechanics meant that a lot of testing was easily solved done with the use of debugging statements and console error messages. Testing felt very efficient with discord as I was able to reach out and provide feedback very fast through messages and calls. 
