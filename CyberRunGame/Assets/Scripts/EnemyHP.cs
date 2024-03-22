@@ -3,16 +3,21 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public int maxHealth = 100;
+    private AudioSource audioSource;
     private Animator myAnim;
+    
+    private Color originalColor;
     private int currentHealth;
+    public AudioClip deathSoundClip; 
     public Renderer enemyRenderer; // Reference to the enemy's renderer
     public Color damageColor = Color.grey; // Color to indicate damage
+    public int maxHealth = 100; 
+    public int moneyDrop;
     public float colorChangeDuration = 0.2f;
-    public AudioClip deathSoundClip; 
-    private AudioSource audioSource;
-
-    private Color originalColor;
+    
+    
+    
+    
 
     void Start()
     {
@@ -41,7 +46,7 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             StartCoroutine(DeadAnimation()); // Start the DeadAnimation coroutine
-            MoneyManager.instance.AddMoney(10);
+            MoneyManager.instance.AddMoney(moneyDrop);
 
             // Play death sound effect if available
             if (deathSoundClip != null && audioSource != null)
