@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Player Projectile
   - Enemy Dead
+  - Enter Car
+  - Exit Car
   layers:
   - Default
   - TransparentFX

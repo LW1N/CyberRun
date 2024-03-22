@@ -117,6 +117,7 @@
     <Compile Include="Assets\Scripts\EnemyHP.cs" />
     <Compile Include="Assets\Scripts\PlayerSprint.cs" />
     <Compile Include="Assets\Scripts\BlockCollider.cs" />
+    <Compile Include="Assets\Scripts\DirectionalCollider.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\Triangle AI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />

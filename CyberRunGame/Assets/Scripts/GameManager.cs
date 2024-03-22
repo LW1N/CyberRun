@@ -85,6 +85,14 @@ public class GameManager : MonoBehaviour
             Destroy(enemy);
         }
 
+        GameObject enterCarObject = GameObject.FindGameObjectWithTag("Enter Car");
+        enterCarObject.transform.position = new Vector3(enterCarObject.transform.position.x, 
+                        -30.5f, enterCarObject.transform.position.z);
+        GameObject exitCarObject = GameObject.FindGameObjectWithTag("Exit Car");
+        exitCarObject.transform.position = new Vector3(exitCarObject.transform.position.x, 
+                        -21.51f, exitCarObject.transform.position.z);
+
+
 
         // Ensure to reset the game's time scale if you've paused it
         Time.timeScale = 1f;
