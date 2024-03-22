@@ -7,8 +7,8 @@ Wanted: Cyber Run is an action packed 2d run and gun game. In it, you traverse a
 ## Project Resources
 
 [Web-playable version of your game.](https://itch.io/)  
-[Trailor](https://youtube.com)  
-[Press Kit](https://dopresskit.com/)  
+[YouTube link for trailer](https://www.youtube.com/watch?v=q4ZRa82txFA)
+[Press Kit website link](https://oval-lilac-9njw.squarespace.com/) - when prompted, use password 'cyber' without quotations. 
 [Proposal: Initial Plan](https://docs.google.com/document/d/1mTcej1XkV0b86fvPoavogw3iHswhOYx9IMi1iMxz6IA/edit?usp=sharing)  
 
 ## Gameplay Explanation
@@ -21,6 +21,7 @@ Wanted: Cyber Run is an action packed 2d run and gun game. In it, you traverse a
 
 `Mouse Cursor` - Aim Player weapon
 `Left Mouse Click` - Fire Player weapon & select weapon upgrades
+`Left Shift` - Activate Player Sprint
 `B` - Open weapon upgrade shop
 
 **The Objective**
@@ -114,9 +115,39 @@ This was managed by [sliders](/Assets/Scripts/PlayerHealthbar.cs)
 
 <img src="./Materials/User Interface & Input/TutorialScreen.png" width="40%">
 
-## Movement/Physics
+## Movement/Physics - Jessica Frost
 
-**Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
+### Overall Physics
+In our game, movement and physics are fundamental to the player experience. As such, we decided to implement a basic `2D RigidBody` component, as well as a `2D Box Collider`, for the player character. This provides a solid foundation for realistic interactions within the game world, including the basic player movement. Building on this, many environmental elements, such as buildings and terrain, utilize tilemap colliders to ensure previse collision detection and response.
+
+Largely, the game adheres to the standard physics model, with a few modifications to enhance gameplay dynamics. One such modification is the lack of gravity affecting the characters. Since the game is a 2D top-down shooter with the intent of the player only moving up/down and left/right, gravity is largely unnecessary. Another modification is using the `Slippery` physics 2D material within the `2D RigidBody` component to reduce the game's friction. This allows the character to "slide" more easily across the ground, making the movements feel much more responsive. Since **Wanted: CyberRun** is a very fast-paced game that relies on quick movement and reactions, this design choice allows the player to navigate through obstacles and enemies with fluidity and precision. 
+
+### Basic Player Movement
+The basic player movement is contained in `PlayerMovement.cs`. Here, the `RigidBody 2D` component is used to simulate the physical movement of the player character within the game environment. In the `FixedUpdate()` method of the script, the `RigidBody 2D`'s `MovePosition` method is used to update the position of the player character based on the calculated movement vector, current player speed, and the amount of time passed since the last update ([see here](https://github.com/LW1N/CyberRun/blob/642a243f32986610f5d4a7031dc76489ee38e474/CyberRunGame/Assets/Scripts/PlayerMovement.cs#L73). This provides smooth and consistent movement regardless of frame rate variations.
+
+### Sprint
+The `PlayerSprint.cs` script introduces a sprinting mechanic to the game. This allows the player character to temporarily boost their movement speed for enhanced mobility. When the player triggers the sprint action, through holding the left shift key, the script adjusts the player's speed accordingly within `PlayerMovement.cs`, overriding the default movement speed. Then, a timer is started to track the player's current sprint duration. If the timer exceeds the set sprint duration, the player is then reverted back to their original speed. If the player prematurely stops pressing the sprint key, the sprint is also terminated. 
+
+After playing around with some different values for both the sprint duration and sprint speed, I decided to use a duration of 3 seconds and a speed roughly 50% faster than the default speed for the sprint. This was used to simulate some realism into the game. The increased speed from the sprint allows the character to move around and dodge projectiles more easily without seeming unrealistic, and the maximum sprint duration ensures that the player is not constantly sprinting to achieve a balance of regular and increased speeds. 
+
+Within `PlayerSprint.cs`, the `Update()` method is called every frame to test for both if the character is currently pressing the sprint key, and if the current stamina is above 0 in order to determine whether to start or stop sprinting. The `FixedUpdate()` method is used to determine if the player has exceeded their sprint duration, as well as deal with some stamina related aspects. 
+
+### Stamina
+
+#### Basic Stamina System
+As mentioned previously, I wanted to add a sense of realism to the sprint mechanic so that the player would not be able to abuse the use of increased speed. As a result, in addition to the sprint duration I implemented a stamina system in `PlayerStaminaBar.cs` to be used in tandem with the sprint mechanic. This limits the amount of sprint the player character is able to use before having to wait for the stamina to regnerate. 
+
+When the player uses the sprint mechanic, the player's stamina will constantly be drained for the entire duration that the sprint is used. When the player stops sprinting, the stamina will cease depleting, and begin a period of regeneration instead. Should the player begin sprinting again while the stamina is still regenerating, the regeneration will halt and the stamina will resume depleting. This logic is mainly used within `PlayerSprint.cs`, as the `FixedUpdate()` method accordingly uses the stamina bar's `DecreaseStamina()` or `IncreaseStamina()` methods based on whether or not the player is sprinting. 
+
+#### Stamina Bar
+In order to add a visual indicator for the amount of stamina the player currently has, I decided to implement a sliding stamina bar very similar to the already implemented sliding health bar. The stamina bar implementation leverages Unity's UI system, utilizing slider components to physically represent the current stamina level. By configuring the slider's properties, such as fill color and appearance, I was able to customize the visual presentation of the stamina bar to suit the game's CyberPunk aesthetic. 
+
+In order to make the stamina bar fully working, I attached the `PlayerStaminaBar.cs` to it. From there, whenever the player's stamina is increased or decreased, it will show visually on the stamina bar. 
+
+### Camera Control
+Since the game is a fast-paced top-down shooter, we decided to have the camera controller position locked onto the player character, as seen in `CameraMovement.cs`. This works well within the context of the game, as the small player icon relative to the rest of the screen, as well as the quick movements, allows for a faster feel to the game. 
+
+One early issue with the camera controller was the precise placement of the camera. Upon playtesting feedback, we realized that the camera controller appeared fixed to the player's feet rather than the player's torso. This gave an awkward feel to the camera positioning, as well as the player's relative position on the screen. This was easily remedied by adding an offset in the y direction to the camera controller's location at any given moment. This put the camera at the player's torso, rather than their feet. 
 
 ## Animation and Visuals - Timothy Shen
 ### Asset Creation
@@ -393,11 +424,28 @@ This sound was implemented after the player was successful in making an upgrade 
 
 **Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
 
-## Press Kit and Trailer
+## Press Kit and Trailer - Jessica Frost
 
-**Include links to your presskit materials and trailer.**
+[Press Kit website link](https://oval-lilac-9njw.squarespace.com/) - when prompted, use password 'cyber' without quotations. 
+[YouTube link for trailer](https://www.youtube.com/watch?v=q4ZRa82txFA)
 
-**Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
+### Press Kit Design Choices
+For the press kit, I wanted to give a basic introduction to the game. As such, I included a short description of the overall game narration/goal. For the screenshots, I tried to choose images that displayed the diverse range of features our game has to offer. One of the best features of the game is the intricate game artwork done by Timothy, so I tried to include screenshots of as many of the different map zones as possible, while still leaving room for potential players to explore new aspects of the map on their own. Similarly, I included a screenshot of the item shop implemented by Henry and Kevin, as the arsenal upgrades are a very big part of the game's allure and functionality. Lastly, I included a screenshot of the opening cutscene implemented by Henry as it helps add key context into the goals of the game. 
+
+As is customary, I also included a playable thumbnail of the full game trailer, as well as a supplemental link to the trailer on YouTube. 
+
+To create the **Wanted: CyberRun** logo as seen on the press kit, I used the online resource [Font Space](https://www.fontspace.com/category/cyberpunk) to create images of the title using the CyberPunk-esque fonts that I was then able to import into the press kit. 
+
+I created the press kit using SquareSpace, an online resource for creating simple websites. From there, I manually added all the images and text and formatted them to my liking. Since I am not a paid member of the SquareSpace service, the only way to share the website I created is by using the password 'cyber' when prompted at the link I provided earlier. In the event that the website is unable to be loaded as well as for convenience, I also provided a pdf version of the press kit available in the GitHub repository here. Additionally, you can find the screenshots I used here. 
+
+### Trailer Design Choices
+Similarly to the press kit, I decided to showcase some of the most important and key elements of gameplay in the trailer. The trailer starts off on the start screen, before transitioning to the first few lines of the initial cutscene narration. Then, the trailer shows screen recordings of some of the different gameplay aspects, such as item upgrades, enemy combat, and city exploration, while still leaving some room for the watcher's imagination. 
+
+To create the trailer, I used WonderShare Filmora application. This allowed me to splice together different screen recordings I took of the gameplay, as well as add in any necessary transitions. In order to follow the CyberPunk theme of the game, I utilized many fast-paced slide transitions, as well as a few glitch transitions between different segments of the trailer. For audio, I used one of the available audios within WonderShare Filmora aptly named 'CyberPunk City.' This is different to the audio used in the actual game, as I did not want the trailer to encompass every single aspect of our game, in order to leave some excitement left for anyone to play the actual game. 
+
+Similarly to the press kit, I used the [CyberPunk fonts](https://www.fontspace.com/category/cyberpunk) in order to create the text transitions in the trailer. 
+
+As with the press kit, you can find the link for the YouTube video of the trailer above, as well as an .mp4 version of the trailer on the GitHub repository here. 
 
 ## Game Feel and Polish
 
