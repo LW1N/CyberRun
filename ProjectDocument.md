@@ -405,7 +405,11 @@ This sound was implemented after the player was successful in making an upgrade 
    
 ### 02 Reign Of Chaos.mp3 
 Credit: https://www.youtube.com/watch?v=dskLTjbDvfs&t=272s    
-This mp3 file was used for the start and dialogue portion of the game. 
+This mp3 file was used for the start and dialogue portion of the game. Used to get the player excited to play our game. 
+
+### boom-128320.mp3    
+Credit: https://pixabay.com/sound-effects/boom-128320/    
+This mp3 file was used for the laser sound effect. Deep sound profile. Very different from the other sound effects, which gives the player how strong the laser truly is.   
 
 
 
