@@ -50,7 +50,7 @@ public class PlayerHealth : MonoBehaviour
         // Play hit sound effect if available
         if (hitSoundClip != null && audioSource != null)
         {
-            audioSource.PlayOneShot(hitSoundClip);
+            audioSource.PlayOneShot(hitSoundClip, 3f);
         }
 
         if (playerRenderer != null)

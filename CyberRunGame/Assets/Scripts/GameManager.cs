@@ -124,17 +124,6 @@ public class GameManager : MonoBehaviour
 
         // Ensure the game is no longer paused
         Time.timeScale = 1f;
-
-        // Check if the player's health component is assigned
-        if (playerHealth != null)
-        {
-            // Directly set the player's health to maxHealth for full restoration
-            playerHealth.Heal(100);
-        }
-        else
-        {
-            Debug.LogError("PlayerHealth component not set in GameManager.");
-        }
     }
 
     public void ExitGame()
