@@ -4,5 +4,6 @@
 
     Last Updated: 3.22.24 (2:40 pm)
 
-    **Visual Bug for WebGL Version**
-     - Money count is off screen when *not* in full screen mode.
+**Visual Bug for WebGL Version**
+
+- Money count is off screen when *not* in full screen mode.
