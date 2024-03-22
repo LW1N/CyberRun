@@ -4,7 +4,7 @@ public class PlayerShoot : MonoBehaviour
 {
     public GameObject beamPrefab;
     public Transform firePoint;
-    public float beamSpeed = 20f;
+    public float beamSpeed = 10f;
     private int moreBulletsLevel = 0;
     private int fasterBulletsLevel = 0;
     private int followingBulletsLevel = 0;

@@ -47,7 +47,7 @@ public class EnemySpawner : MonoBehaviour
                     break;
                 }
             }
-            // If the spawn position is not in a trigger zone and not obstructed by an obstacle, spawn the enemy
+            // If the spawn position is in a trigger zone and not obstructed by an obstacle, spawn the enemy
             if (isInTriggerZone)
             {
                 Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);

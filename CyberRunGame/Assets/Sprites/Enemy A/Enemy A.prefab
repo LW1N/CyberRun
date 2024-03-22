@@ -259,9 +259,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   projectilePrefab: {fileID: 5225427432195430606, guid: 4a986c1ab4f15754486db3323f1c9444, type: 3}
-  projectileSpeed: 5
-  moveSpeed: 3
+  projectileSpeed: 7
+  moveSpeed: 5
   stopDistance: 5
-  shootingInterval: 1.5
+  shootingInterval: 1
   interpolationSpeed: 5
   marginOfError: 0.01
