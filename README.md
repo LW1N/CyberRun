@@ -7,4 +7,3 @@
 **Visual Bug for WebGL Version**
 
 - Money count is off screen when *not* in full screen mode.
-- End game (end credit scene) *occasionally* does not play the animation scene. 
