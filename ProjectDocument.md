@@ -430,6 +430,7 @@ This sound was implemented after the player was successful in making an upgrade 
 ## Press Kit and Trailer - Jessica Frost
 
 [Press Kit website link](https://oval-lilac-9njw.squarespace.com/) - when prompted, use password 'cyber' without quotations. 
+
 [YouTube link for trailer](https://www.youtube.com/watch?v=q4ZRa82txFA)
 
 ### Press Kit Design Choices
