@@ -6,7 +6,7 @@ Wanted: Cyber Run is an action packed 2d run and gun game. In it, you traverse a
 
 ## Project Resources
 
-[Web-playable version of your game.](https://itch.io/)  
+[Web-playable version of your game.](https://wantedcyberrun.itch.io/game)  
 
 [YouTube link for trailer](https://www.youtube.com/watch?v=q4ZRa82txFA)
 
